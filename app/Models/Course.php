@@ -12,4 +12,19 @@ class Course extends Model
 
     const ELABORACION = 1;
     const PUBLICADO = 2;
+
+    public function getRouteKeyName()
+    {
+        return "slug";
+    }
+
+    public function getExcerptAttribute()
+    {
+        return substr($this->description, 0, 80) . "...";
+    }
+
+    public function modality()
+    {
+        return $this->belongsTo(Modality::class);
+    }
 }

@@ -10,4 +10,14 @@ class Modality extends Model
     use HasFactory;
 
     protected $guarded = ['id'];
+
+    public function courses()
+    {
+        return $this->hasMany(Course::class);
+    }
+
+    public function lessons()
+    {
+        return $this->hasMany(Lesson::class);
+    }
 }
