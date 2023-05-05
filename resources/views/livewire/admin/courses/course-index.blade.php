@@ -18,6 +18,8 @@
                     <th scope="col" class="px-6 py-3">
                         Estado
                     </th>
+                    <th scope="col" class="px-6 py-3">
+                    </th>
                 </tr>
             </thead>
             <tbody>
@@ -34,14 +36,34 @@
                         </td>
                         <td class="px-6 py-4">
                             @if ($course->status == 1)
-                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                <span
+                                    class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
                                     Elaboracion
                                 </span>
                             @else
-                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
+                                <span
+                                    class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
                                     Publicado
                                 </span>
                             @endif
+                        </td>
+                        <td>
+                            <div class="space-x-2">
+                                <a href="{{ route('admin.courses.edit', $course) }}">
+                                    <i class="fa-solid fa-pen-to-square text-blue-500 text-lg cursor-pointer"></i>
+                                </a>
+                                <a href="{{ route('admin.courses.show', $course) }}">
+                                    <i class="fa-solid fa-eye text-green-700 text-lg cursor-pointer"></i>
+                                </a>
+                                <form action="{{ route('admin.courses.destroy', $course) }}" method="POST"
+                                    class="inline-block">
+                                    @csrf
+                                    @method('delete')
+                                    <button type="submit">
+                                        <i class="fa-solid fa-trash text-red-500 text-lg cursor-pointer"></i>
+                                    </button>
+                                </form>
+                            </div>
                         </td>
                     </tr>
                 @empty
