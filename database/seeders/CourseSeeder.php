@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 use App\Models\Course;
+use App\Models\Goal;
+use App\Models\Image;
 use App\Models\Lesson;
 use App\Models\Module;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -18,6 +20,10 @@ class CourseSeeder extends Seeder
         $courses = Course::factory(10)->create();
 
         foreach ($courses as $course) {
+            $images = Goal::factory(5)->create([
+                'goalable_id' => $course->id,
+                'goalable_type' => Course::class,
+            ]);
 
             $modules = Module::factory(5)->create([
                 'course_id' => $course->id,

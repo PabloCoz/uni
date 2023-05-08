@@ -22,7 +22,7 @@ class ScheduleController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.schedules.create');
     }
 
     /**
@@ -30,7 +30,19 @@ class ScheduleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'start' => 'required|time',
+            'end' => 'required|time|after:start',
+            'date' => 'required|string|max:255',
+        ]);
+
+        $schedule = Schedule::create([
+            'start' => $request->start,
+            'end' => $request->end,
+            'date' => $request->date,
+        ]);
+
+        return redirect()->route('admin.schedules.index')->with('success', 'Schedule created successfully');
     }
 
     /**
@@ -44,24 +56,37 @@ class ScheduleController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Schedule $schedule)
     {
-        //
+        return view('admin.schedules.edit', compact('schedule'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Schedule $schedule)
     {
-        //
+        $request->validate([
+            'start' => 'required|time',
+            'end' => 'required|time|after:start',
+            'date' => 'required|string|max:255',
+        ]);
+
+        $schedule->update([
+            'start' => $request->start,
+            'end' => $request->end,
+            'date' => $request->date,
+        ]);
+
+        return redirect()->route('admin.schedules.index')->with('success', 'Schedule updated successfully');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Schedule $schedule)
     {
-        //
+        $schedule->delete();
+        return redirect()->route('admin.schedules.index')->with('success', 'Schedule deleted successfully');
     }
 }
