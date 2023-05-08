@@ -17,6 +17,7 @@ class ScheduleFactory extends Factory
     public function definition(): array
     {
         return [
+            'date' => $this->faker->dayOfWeek(),
             'start' => $this->faker->time(),
             'end' => $this->faker->time(),
         ];

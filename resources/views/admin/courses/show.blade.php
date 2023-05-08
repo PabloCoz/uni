@@ -14,27 +14,23 @@
                 class="flex flex-wrap text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400">
                 <li class="mr-2" @click="openTab = 1">
                     <button :class="openTab === 1 ? activeClasses : inactiveClasses"
-                        class="inline-block p-4">Modulos</button>
+                        class="inline-block p-4 focus:outline-none">Módulos y Lecciones</button>
                 </li>
                 <li class="mr-2" @click="openTab = 2">
                     <button :class="openTab === 2 ? activeClasses : inactiveClasses"
-                        class="inline-block p-4">Lecciones</button>
+                        class="inline-block p-4 focus:outline-none">Horarios</button>
                 </li>
                 <li class="mr-2" @click="openTab = 3">
                     <button :class="openTab === 3 ? activeClasses : inactiveClasses"
-                        class="inline-block p-4">Settings</button>
-                </li>
-                <li class="mr-2" @click="openTab = 4">
-                    <button :class="openTab === 4 ? activeClasses : inactiveClasses"
-                        class="inline-block p-4">Contacts</button>
+                        class="inline-block p-4 focus:outline-none">Modalidad</button>
                 </li>
             </ul>
             <div x-show="openTab === 1">
-                <p>Contenido de la pestaña 1...</p>
+                @livewire('admin.courses.modules.module-index', ['course' => $course], key($course->id))
             </div>
 
             <div x-show="openTab === 2">
-                <p>Contenido de la pestaña 2...</p>
+                @livewire('admin.courses.schedules.schedule-index', ['course' => $course], key($course->id))
             </div>
         </div>
     </div>

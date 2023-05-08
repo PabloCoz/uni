@@ -76,6 +76,12 @@
                     </a>
                 </li>
                 <li>
+                    <a href="{{route('admin.schedules.index')}}" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100">
+                        <i class="fa-solid fa-clock"></i>
+                        <span class="flex-1 ml-3">Horarios</span>
+                    </a>
+                </li>
+                <li>
                     <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100">
                         <i class="fa-solid fa-users"></i>
                         <span class="flex-1 ml-3">Alumnos</span>
@@ -106,6 +112,7 @@
     @livewireScripts
 
     @stack('form')
+    @stack('ckeditor')
 </body>
 
 </html>

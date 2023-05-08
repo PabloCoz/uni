@@ -27,4 +27,19 @@ class Course extends Model
     {
         return $this->belongsTo(Modality::class);
     }
+
+    public function modules()
+    {
+        return $this->hasMany(Module::class);
+    }
+
+    public function lessons()
+    {
+        return $this->hasManyThrough(Lesson::class, Module::class);
+    }
+
+    public function images()
+    {
+        return $this->morphMany(Image::class, 'imageable');
+    }
 }
