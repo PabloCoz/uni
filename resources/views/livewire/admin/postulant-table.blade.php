@@ -35,7 +35,7 @@
                             {{ $postulant->phone }}
                         </td>
                         <td class="px-6 py-4">
-
+                            @livewire('admin.modals.voucher-modal', ['postulant' => $postulant], key($postulant->id))
                         </td>
                     </tr>
                 @endforeach

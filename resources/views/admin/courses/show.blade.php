@@ -5,7 +5,7 @@
         </div>
 
         <div class="mt-5" x-data="{
-            openTab: 2,
+            openTab: 3,
             activeClasses: 'text-blue-600 bg-gray-100 rounded-t-lg',
             inactiveClasses: 'text-blue-500 hover:text-blue-800'
         }">
@@ -22,6 +22,10 @@
                 </li>
                 <li class="mr-2" @click="openTab = 3">
                     <button :class="openTab === 3 ? activeClasses : inactiveClasses"
+                        class="inline-block p-4 focus:outline-none">Metas del curso</button>
+                </li>
+                <li class="mr-2" @click="openTab = 4">
+                    <button :class="openTab === 4 ? activeClasses : inactiveClasses"
                         class="inline-block p-4 focus:outline-none">Alumnos Registrados</button>
                 </li>
             </ul>
@@ -34,6 +38,10 @@
             </div>
 
             <div x-show="openTab === 3">
+                @livewire('admin.courses.goals.goal-index', ['course' => $course], key($course->id))
+            </div>
+
+            <div x-show="openTab === 4">
                 @livewire('admin.courses.students.student-index', ['course' => $course], key($course->id))
             </div>
         </div>
