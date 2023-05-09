@@ -6,10 +6,13 @@ use Livewire\Component;
 
 class VoucherModal extends Component
 {
-    public $open = true;
+    public $show = false;
 
     public function render()
     {
         return view('livewire.admin.modals.voucher-modal');
     }
+
+
+
 }
