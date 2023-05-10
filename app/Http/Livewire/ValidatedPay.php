@@ -32,7 +32,6 @@ class ValidatedPay extends Component
             $postulant = Postulant::where('code', $this->code)->first();
 
             $postulant->update([
-                'validated' => true,
                 'url_voucher' => $url,
             ]);
 

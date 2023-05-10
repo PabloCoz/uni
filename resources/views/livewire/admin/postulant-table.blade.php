@@ -20,6 +20,9 @@
                     <th scope="col" class="px-6 py-3">
                         Voucher
                     </th>
+                    <th scope="col" class="px-6 py-3">
+                        
+                    </th>
                 </tr>
             </thead>
             <tbody>
@@ -36,6 +39,16 @@
                         </td>
                         <td class="px-6 py-4">
                             @livewire('admin.modals.voucher-modal', ['postulant' => $postulant], key($postulant->id))
+                        </td>
+                        <td class="px-6 py-4">
+                            <div class="flex items-center justify-center space-x-1">
+                                <button class="px-2" wire:click="validatedVoucher({{ $postulant->id }})">
+                                    <i class="fa-solid fa-square-check text-xl text-green-700"></i>
+                                </button>
+                                <button class="px-2" wire:click="invalidatedVoucher({{ $postulant->id }})">
+                                    <i class="fa-solid fa-circle-xmark text-xl text-red-600"></i>
+                                </button>
+                            </div>
                         </td>
                     </tr>
                 @endforeach

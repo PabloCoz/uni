@@ -5,7 +5,7 @@
         </div>
 
         <div class="mt-5" x-data="{
-            openTab: 3,
+            openTab: 1,
             activeClasses: 'text-blue-600 bg-gray-100 rounded-t-lg',
             inactiveClasses: 'text-blue-500 hover:text-blue-800'
         }">
