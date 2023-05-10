@@ -69,7 +69,7 @@
                 @empty
                     <tr class="bg-white border-b">
                         <td colspan="4" class="px-6 py-4 text-center">
-                            No hay cursos que coincidan con la búsqueda
+                            No hay talleres que coincidan con la búsqueda
                         </td>
                     </tr>
                 @endforelse
