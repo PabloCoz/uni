@@ -7,7 +7,6 @@ use App\Models\Goal;
 use App\Models\Image;
 use App\Models\Lesson;
 use App\Models\Module;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class CourseSeeder extends Seeder
@@ -17,12 +16,17 @@ class CourseSeeder extends Seeder
      */
     public function run(): void
     {
-        $courses = Course::factory(10)->create();
+        $courses = Course::factory(30)->create();
 
         foreach ($courses as $course) {
-            $images = Goal::factory(5)->create([
+            Goal::factory(5)->create([
                 'goalable_id' => $course->id,
                 'goalable_type' => Course::class,
+            ]);
+
+            Image::factory(1)->create([
+                'imageable_id' => $course->id,
+                'imageable_type' => Course::class,
             ]);
 
             $modules = Module::factory(5)->create([

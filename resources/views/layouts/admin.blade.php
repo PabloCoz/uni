@@ -108,8 +108,8 @@
             {{ $slot }}
         </main>
     </div>
-    <script src="/livewire/livewire.js"></script>
-    
+
+    @livewireScripts
 
     @stack('form')
     @stack('ckeditor')

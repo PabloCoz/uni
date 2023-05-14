@@ -9,6 +9,7 @@ class Course extends Model
 {
     use HasFactory;
     protected $guarded = ['id'];
+    protected $withCount = ['students'];
 
     const ELABORACION = 1;
     const PUBLICADO = 2;
@@ -38,9 +39,9 @@ class Course extends Model
         return $this->hasManyThrough(Lesson::class, Module::class);
     }
 
-    public function images()
+    public function image()
     {
-        return $this->morphMany(Image::class, 'imageable');
+        return $this->morphOne(Image::class, 'imageable');
     }
 
     public function goals()
@@ -51,5 +52,15 @@ class Course extends Model
     public function schedules()
     {
         return $this->belongsToMany(Schedule::class);
+    }
+
+    public function students()
+    {
+        return $this->belongsToMany(User::class);
+    }
+
+    public function teacher()
+    {
+        return $this->belongsTo(User::class, 'user_id');
     }
 }

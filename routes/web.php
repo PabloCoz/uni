@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\CourseController;
 use App\Http\Controllers\PostulantController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\WorkshopController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -38,4 +40,14 @@ Route::post('/request-code', [PostulantController::class, 'codeRequest'])->name(
 
 Route::post('/validated-pay', [PostulantController::class, 'validatedPay'])->name('validated-pay');
 
+Route::middleware('auth')->group(function () {
+    Route::get('courses', [CourseController::class, 'index'])->name('courses.index');
+    Route::get('courses/{course}', [CourseController::class, 'show'])->name('courses.show');
+    Route::post('courses/{course}/enrolled', [CourseController::class, 'enrolled'])->name('courses.enrolled');
+});
+
+Route::middleware('auth')->group(function () {
+    Route::get('workshops', [WorkshopController::class, 'index'])->name('workshops.index');
+    Route::get('workshops/{workshop}', [WorkshopController::class, 'show'])->name('workshops.show');
+});
 require __DIR__.'/auth.php';
