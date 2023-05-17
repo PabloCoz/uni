@@ -17,13 +17,15 @@ class DatabaseSeeder extends Seeder
     {
         Storage::deleteDirectory('courses');
         Storage::makeDirectory('courses');
-        
+        Storage::deleteDirectory('sliders');
+        Storage::makeDirectory('sliders');
+
         User::create([
             'name'=> 'Pablo Coz Ramos',
             'username'=> 'pablo7',
             'password'=> bcrypt('password'),
         ]);
-        
+
         \App\Models\User::factory(10)->create();
 
         // \App\Models\User::factory()->create([
@@ -36,6 +38,7 @@ class DatabaseSeeder extends Seeder
             ScheduleSeeder::class,
             ModalitySeeder::class,
             CourseSeeder::class,
+            SliderSeeder::class,
         ]);
     }
 }
