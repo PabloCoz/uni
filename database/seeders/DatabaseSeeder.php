@@ -21,8 +21,8 @@ class DatabaseSeeder extends Seeder
         Storage::makeDirectory('sliders');
 
         User::create([
-            'name'=> 'Pablo Coz Ramos',
             'username'=> 'pablo7',
+            'email'=> 'pablo@udh.edu.pe',
             'password'=> bcrypt('password'),
         ]);
 

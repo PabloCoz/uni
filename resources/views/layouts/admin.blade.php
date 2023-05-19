@@ -93,6 +93,14 @@
                         <i class="fa-solid fa-user-clock"></i>
                         <span class="flex-1 ml-3">Postulantes</span>
                     </a>
+                </li>
+                <li>
+                    <a href="{{ route('admin.sliders') }}"
+                        class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100">
+                        <i class="fa-solid fa-rectangle-ad"></i>
+                        <span class="flex-1 ml-3">Gestion de Anuncios</span>
+                    </a>
+                </li>
                 <li>
                     <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100">
                         <i class="fa-solid fa-circle-left"></i>

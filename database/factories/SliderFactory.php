@@ -17,7 +17,6 @@ class SliderFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => $this->faker->sentence,
             'url' => 'sliders/' . $this->faker->image('public/storage/sliders', 640, 480, null, false)
         ];
     }
