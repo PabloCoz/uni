@@ -19,7 +19,6 @@ class PostulantFactory extends Factory
         return [
             'fullname' => $this->faker->name(),
             'email' => $this->faker->unique()->safeEmail(),
-            'validated' => $this->faker->boolean(),
             'country' => $this->faker->country(),
             'city' => $this->faker->city(),
             'phone' => $this->faker->phoneNumber(),

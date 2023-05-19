@@ -95,7 +95,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('admin.sliders') }}"
+                    <a href="{{ route('admin.sliders.index') }}"
                         class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100">
                         <i class="fa-solid fa-rectangle-ad"></i>
                         <span class="flex-1 ml-3">Gestion de Anuncios</span>

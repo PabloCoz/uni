@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 
 class PostulantController extends Controller
 {
+    public function index()
+    {
+        return view('postulant');
+    }
     public function store(Request $request)
    {
       try {
@@ -39,9 +43,9 @@ class PostulantController extends Controller
          $postulant->code = strtoupper(substr(uniqid(), 7, 6));
          $postulant->save();
 
-         return redirect()->route('home')->with('success', 'Su codigo de validacion despues del pago es: ' . $postulant->code);
+         return redirect()->route('postulants.index')->with('success', 'Su codigo de validacion despues del pago es: ' . $postulant->code);
       } catch (\Exception $e) {
-         return redirect()->route('home')->with('error', $e->getMessage());
+         return redirect()->route('postulants.index')->with('error', $e->getMessage());
       }
    }
 

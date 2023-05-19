@@ -13,7 +13,9 @@ return new class extends Migration
     {
         Schema::create('sliders', function (Blueprint $table) {
             $table->id();
+            $table->string('page')->nullable();
             $table->string('url');
+            $table->string('route')->nullable();
             $table->timestamps();
         });
     }

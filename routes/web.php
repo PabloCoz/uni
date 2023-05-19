@@ -4,6 +4,7 @@ use App\Http\Controllers\CourseController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostulantController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\WorkshopController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,9 +19,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->middleware('guest')->name('home');
+Route::get('/', WelcomeController::class)->middleware('guest')->name('home');
 
 Route::get('/dashboard', HomeController::class)->middleware(['auth', 'verified'])->name('dashboard');
 
@@ -30,7 +29,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::post('/postulants', [PostulantController::class, 'store'])->name('postulants.store');
+Route::get('/postulants', [PostulantController::class, 'index'])->name('postulants.index');
+Route::post('/postulants/register', [PostulantController::class, 'store'])->name('postulants.store');
 Route::get('/validate-pay', [PostulantController::class, 'validatedView'])->name('validate-pay');
 
 Route::get('/remember-code', [PostulantController::class, 'rememberCode'])->name('remember-code');

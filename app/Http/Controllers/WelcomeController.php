@@ -5,12 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\Slider;
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class WelcomeController extends Controller
 {
     public function __invoke()
     {
         $sliders = $this->sliders();
-        return view('dashboard', compact('sliders'));
+        return view('welcome', compact('sliders'));
     }
 
     public function sliders()

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Course;
+use App\Models\Slider;
 use Illuminate\Http\Request;
 
 class CourseController extends Controller
@@ -12,7 +13,8 @@ class CourseController extends Controller
      */
     public function index()
     {
-        return view('courses.index');
+        $sliders = $this->sliders();
+        return view('courses.index', compact('sliders'));
     }
 
     public function show(Course $course)
@@ -24,5 +26,10 @@ class CourseController extends Controller
     {
         $course->students()->attach(auth()->user()->id);
         return redirect()->route('courses.status', $course);
+    }
+
+    public function sliders()
+    {
+        return Slider::where('route', request()->path())->get();
     }
 }

@@ -2,9 +2,11 @@
 
 namespace App\Http\Livewire\Admin;
 
+use App\Mail\ApprovedUser;
 use App\Models\Postulant;
 use App\Models\Profile;
 use App\Models\User;
+use Illuminate\Support\Facades\Mail;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -42,7 +44,6 @@ class PostulantTable extends Component
 
     public function createUser($postulant)
     {
-        //dd($postulant);
         $name = explode(' ', $postulant['fullname']);
         $email = $postulant['email'];
 
@@ -58,6 +59,12 @@ class PostulantTable extends Component
             'user_id' => $user->id,
         ]);
 
-        Postulant::where('email', $email)->delete();
+        $postulant->validated = true;
+
+        $postulant->save();
+
+        $mail = new ApprovedUser($user);
+
+        Mail::to($user->email)->send($mail);
     }
 }
