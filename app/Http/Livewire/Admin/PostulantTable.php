@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Admin;
 
 use App\Models\Postulant;
+use App\Models\Profile;
 use App\Models\User;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -41,12 +42,22 @@ class PostulantTable extends Component
 
     public function createUser($postulant)
     {
+        //dd($postulant);
         $name = explode(' ', $postulant['fullname']);
+        $email = $postulant['email'];
 
-        User::create([
-            'name' => $postulant['fullname'],
+        $user = User::create([
+            'email' => $email,
             'username' => $name[0] . rand(1, 100),
             'password' => bcrypt('password'),
         ]);
+
+        Profile::create([
+            'name' => $name[0],
+            'full_name' => $name[1],
+            'user_id' => $user->id,
+        ]);
+
+        Postulant::where('email', $email)->delete();
     }
 }
