@@ -19,6 +19,7 @@ return new class extends Migration
             $table->integer('hours');
             $table->enum('status', [Course::ELABORACION, Course::PUBLICADO])->default(Course::ELABORACION);
             $table->string('slug');
+            $table->string('url')->nullable();
             $table->foreignId('modality_id')->constrained();
             $table->foreignId('user_id')->constrained();
             $table->timestamps();

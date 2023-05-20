@@ -55,7 +55,7 @@ class PostulantTable extends Component
 
         Profile::create([
             'name' => $name[0],
-            'full_name' => $name[1],
+            'lastname' => $name[1],
             'user_id' => $user->id,
         ]);
 
