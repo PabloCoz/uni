@@ -9,14 +9,17 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-3">
                 <div class="col-span-1">
-                    <section class="bg-white overflow-hidden rounded-lg shadow-md">
-                        <article class="px-6 py-4">
-                            <div class="flex items-center justify-center">
-                                <i class="fa-solid fa-book text-3xl"></i>
-                                <h1 class="font-bold text-sm uppercase ml-4 tracking-widest">Mis cursos inscritos</h1>
-                            </div>
-                        </article>
-                    </section>
+                    <a href="{{ route('courses.my-courses') }}">
+                        <section class="bg-white overflow-hidden rounded-lg shadow-md">
+                            <article class="px-6 py-4">
+                                <div class="flex items-center justify-center">
+                                    <i class="fa-solid fa-book text-3xl"></i>
+                                    <h1 class="font-bold text-sm uppercase ml-4 tracking-widest">Mis cursos inscritos
+                                    </h1>
+                                </div>
+                            </article>
+                        </section>
+                    </a>
                 </div>
                 <div class="col-span-1">
                     <section class="bg-white overflow-hidden rounded-lg shadow-md">

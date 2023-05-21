@@ -4,7 +4,6 @@
     <img class="h-60 w-full object-cover" src="{{ Storage::url($course->image->url) }}" alt="">
     <div class="px-6 py-4 flex-1 flex flex-col">
         <h1 class="card-title">{{ Str::limit($course->title, 35) }}</h1>
-        <p class="text-gray-500 text-sm mb-2 mt-auto">Prof: {{ $course->teacher->name }} {{ $course->teacher->lastname }}
         </p>
         <div class="flex">
             <ul class="flex text-sm">
@@ -24,12 +23,6 @@
                 ({{ $course->students_count }})
             </p>
         </div>
-        {{--  @if ($course->price->value == 0)
-            <p class="my-2 text-green-600 font-bold">GRATIS!!!</p>
-        @else
-            <p class="my-2 text-gray-500 font-bold">US$ {{$course->price->value}}</p>
-        @endif --}}
-
         <a href="{{ route('courses.show', $course) }}"
             class="bg-blue-500 p-2 w-full rounded text-white text-center font-bold">
             Mas Info...
