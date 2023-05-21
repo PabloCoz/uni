@@ -6,6 +6,7 @@ use App\Http\Controllers\PostulantController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\WorkshopController;
+use App\Http\Livewire\Courses\CourseStatus;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -43,6 +44,7 @@ Route::middleware('auth')->group(function () {
     Route::get('courses', [CourseController::class, 'index'])->name('courses.index');
     Route::get('courses/{course}', [CourseController::class, 'show'])->name('courses.show');
     Route::post('courses/{course}/enrolled', [CourseController::class, 'enrolled'])->name('courses.enrolled');
+    Route::get('courses/course-status/{course}', CourseStatus::class)->name('courses.status');
 });
 
 Route::middleware('auth')->group(function () {

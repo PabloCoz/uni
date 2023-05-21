@@ -31,6 +31,16 @@
                             <span class="text-xs text-red-500">{{ $message }}</span>
                         @enderror
 
+                        @if ($lesson->modality_id == 2)
+                            <div class="flex items-center mt-4">
+                                <label class="w-32">URL: </label>
+                                <input wire:model="lesson.url" type="text" class="rounded w-full">
+                            </div>
+                        @endif
+                        @error('lesson.url')
+                            <span class="text-xs text-red-500">{{ $message }}</span>
+                        @enderror
+
                         <div class="mt-4 flex justify-end">
                             <button type=" submit"
                                 class="block rounded p-2 text-black font-bold text-sm bg-yellow-400">Actualizar</button>
@@ -49,8 +59,11 @@
                         <hr class="my-2">
 
                         <p class="text-sm">Plataforma: {{ $item->modality->name }}</p>
-                        <p class="text-sm">Enlace: <a href="{{ $item->url }}" target="_blank">{{ $item->url }}</a>
-                        </p>
+                        @if ($item->modality_id == 2)
+                            <p class="text-sm">Enlace: <a class="text-blue-600 hover:underline"
+                                    href="{{ $item->url }}" target="_blank">{{ $item->url }}</a>
+                            </p>
+                        @endif
 
                         <div class="my-2 flex">
                             <button class="block rounded p-2 font-bold text-sm text-white bg-blue-500 mr-1"
@@ -59,7 +72,9 @@
                                 wire:click="destroy({{ $item }})">Eliminar</button>
                         </div>
 
-
+                        <div>
+                            @livewire('admin.courses.lessons.lesson-resource', ['lesson' => $item], key('lesson-resources' . $item->id))
+                        </div>
                     </div>
                 @endif
             </div>

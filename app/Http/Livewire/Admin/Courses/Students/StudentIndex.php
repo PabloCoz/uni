@@ -6,8 +6,11 @@ use Livewire\Component;
 
 class StudentIndex extends Component
 {
+    public $course;
+
     public function render()
     {
-        return view('livewire.admin.courses.students.student-index');
+        $students = $this->course->students;
+        return view('livewire.admin.courses.students.student-index', compact('students'));
     }
 }

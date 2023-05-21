@@ -1,5 +1,5 @@
 <div>
-    <div class="max-w-6xl mx-auto px-6 lg:px-8 py-12">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 py-12">
         <div class="my-5">
             <h1 class="font-bold text-2xl uppercase">Lista de cursos</h1>
         </div>

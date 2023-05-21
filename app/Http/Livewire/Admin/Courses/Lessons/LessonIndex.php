@@ -17,6 +17,7 @@ class LessonIndex extends Component
         'lesson.name' => 'required',
         'lesson.modality_id' => 'required',
         'lesson.description' => 'required',
+        'lesson.url' => 'nullable|url'
     ];
 
     public function loadLessons()

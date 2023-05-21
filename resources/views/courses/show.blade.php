@@ -35,7 +35,8 @@
                     <i class="fa-solid fa-clock"></i>
                     Horarios
                     @foreach ($course->schedules as $schedule)
-                        <p class="ml-4 font-semibold">{{ $schedule->date }} {{ $schedule->start }} - {{ $schedule->end }}</p>
+                        <p class="ml-4 font-semibold">{{ $schedule->date }} {{ $schedule->start }} -
+                            {{ $schedule->end }}</p>
                     @endforeach
                 </div>
             </div>
@@ -94,18 +95,8 @@
         <div class="order-1 lg:order-2">
             <section class="overfllow-hidden bg-white shadow rounded-lg mb-4">
                 <div class="px-6 py-4">
-                    <div class="flex items-center">
-                        <img class="rounded-full h-12 w-12 object-cover shadow-lg"
-                            src="{{ $course->teacher->profile_photo_url }}" alt="{{ $course->teacher->name }}">
-                        <div class="ml-4">
-                            <h1 class="font-bold text-gray-500 text-lg">Prof:
-                                {{ $course->teacher->name . ' ' . $course->teacher->lastname }}</h1>
-                            <a class="text-red-500 text-sm font-bold"
-                                href="">{{ '@' . Str::slug($course->teacher->name . $course->teacher->lastname, '') }}</a>
-                        </div>
-                    </div>
                     @can('enrolled', $course)
-                        <a href="{{-- {{route('courses.status', $course)}} --}}"
+                        <a href="{{ route('courses.status', $course) }}"
                             class="bg-red-600 p-2 w-full text-white font-bold text-center rounded block mt-4">Continuar con
                             el curso</a>
                     @else

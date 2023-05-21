@@ -30,4 +30,10 @@ class Lesson extends Model
     {
         return $this->belongsTo(Modality::class);
     }
+
+    public function resources()
+    {
+        return $this->morphMany(Resource::class, 'resourceable');
+    }
+
 }

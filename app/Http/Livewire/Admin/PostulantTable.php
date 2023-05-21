@@ -18,9 +18,10 @@ class PostulantTable extends Component
     public function render()
     {
         $postulants = Postulant::where('validated', false)
-            ->where('fullname', 'LIKE', '%' . $this->search . '%')
-            ->orWhere('email', 'LIKE', '%' . $this->search . '%')
-            ->latest('id')
+            ->when($this->search, function ($query) {
+                $query->where('fullname', 'like', '%' . $this->search . '%');
+                $query->orWhere('email', 'like', '%' . $this->search . '%');
+            })
             ->paginate(10);
         return view('livewire.admin.postulant-table', compact('postulants'));
     }
