@@ -19,6 +19,8 @@ class DatabaseSeeder extends Seeder
         Storage::makeDirectory('courses');
         Storage::deleteDirectory('sliders');
         Storage::makeDirectory('sliders');
+        Storage::deleteDirectory('workshops');
+        Storage::makeDirectory('workshops');
 
         User::create([
             'username'=> 'pablo7',

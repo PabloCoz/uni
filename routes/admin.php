@@ -13,9 +13,11 @@ Route::get('/', HomeController::class)->name('admin.home');
 Route::get('postulants', [PostulantController::class, 'index'])->name('admin.postulants');
 
 Route::resource('courses', CourseController::class)->names('admin.courses');
+Route::post('courser/{course}/approvedCourse', [CourseController::class, 'approvedCourse'])->name('admin.courses.approvedCourse');
 
 Route::resource('schedules', ScheduleController::class)->names('admin.schedules');
 
 Route::resource('workshops', WorkshopController::class)->names('admin.workshops');
+Route::post('workshop/{workshop}/approvedWorkshop', [WorkshopController::class, 'approvedWorkshop'])->name('admin.workshops.approvedWorkshop');
 
 Route::resource('sliders', SliderController::class)->names('admin.sliders');

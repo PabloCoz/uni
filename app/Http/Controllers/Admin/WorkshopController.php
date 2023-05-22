@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Modality;
-use App\Models\Schedule;
 use App\Models\Workshop;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class WorkshopController extends Controller
 {
@@ -18,27 +18,82 @@ class WorkshopController extends Controller
     public function create()
     {
         $modalities = Modality::pluck('name', 'id');
-        $schedules = Schedule::pluck('start', 'end', 'id');
-        return view('admin.workshops.create', compact('modalities', 'schedules'));
+        return view('admin.workshops.create', compact('modalities'));
     }
 
     public function store(Request $request)
     {
+        $request->validate([
+            'title' => 'required',
+            'slug' => 'required|unique:workshops',
+            'description' => 'required',
+            'modality_id' => 'required',
+            'user_id' => 'required',
+            'file' => 'image',
+        ]);
+        $workshop = Workshop::create($request->all());
 
+        if ($request->file('file')) {
+            $url = Storage::put('workshops', $request->file('file'));
+            $workshop->image()->create([
+                'url' => $url
+            ]);
+        }
+
+        return redirect()->route('admin.workshops.index', $workshop)->with('info', 'El curso se creó con éxito');
     }
 
     public function show(Workshop $workshop)
     {
-
+        return view('admin.workshops.show', compact('workshop'));
     }
 
     public function edit(Workshop $workshop, Request $request)
     {
+        $modalities = Modality::pluck('name', 'id');
+        return view('admin.workshops.edit', compact('workshop', 'modalities'));
+    }
 
+    public function update(Request $request, Workshop $workshop)
+    {
+        $request->validate([
+            'title' => 'required',
+            'slug' => "required|unique:workshops,slug,$workshop->id",
+            'description' => 'required',
+            'modality_id' => 'required',
+            'file' => 'image',
+        ]);
+        $workshop->update($request->all());
+
+        if ($request->file('file')) {
+            $url = Storage::put('workshops', $request->file('file'));
+            if ($workshop->image) {
+                Storage::delete($workshop->image->url);
+                $workshop->image->update([
+                    'url' => $url
+                ]);
+            } else {
+                $workshop->image()->create([
+                    'url' => $url
+                ]);
+            }
+        }
+
+        return redirect()->route('admin.workshops.edit', $workshop)->with('info', 'El curso se actualizó con éxito');
     }
 
     public function destroy(Workshop $workshop)
     {
+        $workshop->delete();
+        return redirect()->route('admin.workshops.index')->with('info', 'El curso se eliminó con éxito');
+    }
 
+    public function approvedWorkshop(Workshop $workshop)
+    {
+        $this->authorize('revision', $workshop);
+        $workshop->status = 3;
+        $workshop->save();
+
+        return redirect()->route('admin.courses.index')->with('info', 'Publicado correctamente');
     }
 }

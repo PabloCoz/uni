@@ -6,8 +6,7 @@
 
         <div class="mt-5">
 
-            {!! Form::open($course, ['route' => 'admin.workshops.update', 'files' => true, 'autocomplete' => 'off']) !!}
-            {!! Form::hidden('user_id', auth()->user()->id) !!}
+            {!! Form::model($workshop, ['route' => ['admin.workshops.update', $workshop], 'method' => 'put', 'files' => true]) !!}
 
             @include('admin.workshops.partials.form')
             <div class="flex justify-end">

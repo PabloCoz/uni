@@ -52,6 +52,16 @@ class User extends Authenticatable
         return $this->belongsToMany(Course::class);
     }
 
+    public function workshops_dictated()
+    {
+        return $this->hasMany(Workshop::class);
+    }
+
+    public function workshops_enrolled()
+    {
+        return $this->belongsToMany(Workshop::class);
+    }
+
     public function profile()
     {
         return $this->hasOne(Profile::class);

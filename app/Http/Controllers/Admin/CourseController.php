@@ -5,9 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Course;
 use App\Models\Modality;
-use App\Models\Schedule;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class CourseController extends Controller
 {
@@ -25,8 +25,7 @@ class CourseController extends Controller
     public function create(): View
     {
         $modalities = Modality::pluck('name', 'id');
-        $schedules = Schedule::pluck('start', 'end', 'id');
-        return  view('admin.courses.create', compact('modalities', 'schedules'));
+        return  view('admin.courses.create', compact('modalities'));
     }
 
     /**
@@ -38,12 +37,18 @@ class CourseController extends Controller
             'title' => 'required',
             'slug' => 'required|unique:courses',
             'description' => 'required',
-            'category_id' => 'required',
             'modality_id' => 'required',
-            'schedule_id' => 'required',
-            /* 'file' => 'image', */
+            'user_id' => 'required',
+            'file' => 'image',
         ]);
         $course = Course::create($request->all());
+
+        if ($request->file('file')) {
+            $url = Storage::put('courses', $request->file('file'));
+            $course->image()->create([
+                'url' => $url
+            ]);
+        }
 
         return redirect()->route('admin.courses.index', $course)->with('info', 'El curso se creó con éxito');
     }
@@ -62,7 +67,6 @@ class CourseController extends Controller
     public function edit(Course $course): View
     {
         $modalities = Modality::pluck('name', 'id');
-        $schedules = Schedule::pluck('start', 'end', 'id');
         return view('admin.courses.edit', compact('course', 'modalities', 'schedules'));
     }
 
@@ -75,12 +79,24 @@ class CourseController extends Controller
             'title' => 'required',
             'slug' => "required|unique:courses,slug,$course->id",
             'description' => 'required',
-            'category_id' => 'required',
             'modality_id' => 'required',
-            'schedule_id' => 'required',
-            /* 'file' => 'image', */
+            'file' => 'image',
         ]);
         $course->update($request->all());
+
+        if ($request->file('file')) {
+            $url = Storage::put('courses', $request->file('file'));
+            if ($course->image) {
+                Storage::delete($course->image->url);
+                $course->image->update([
+                    'url' => $url
+                ]);
+            } else {
+                $course->image()->create([
+                    'url' => $url
+                ]);
+            }
+        }
 
         return redirect()->route('admin.courses.index', $course)->with('info', 'El curso se actualizó con éxito');
     }
@@ -90,6 +106,16 @@ class CourseController extends Controller
      */
     public function destroy(Course $course)
     {
-        //
+        $course->delete();
+        return redirect()->route('admin.courses.index')->with('info', 'El curso se eliminó con éxito');
+    }
+
+    public function approvedCourse(Course $course)
+    {
+        $this->authorize('revision', $course);
+        
+        $course->status = 3;
+        $course->save();
+        return redirect()->route('admin.courses.index')->with('info', 'Publicado correctamente');
     }
 }

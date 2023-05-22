@@ -33,4 +33,29 @@ class Workshop extends Model
     {
         return $this->morphMany(Goal::class, 'goalable');
     }
+
+    public function sessions()
+    {
+        return $this->hasMany(Session::class);
+    }
+
+    public function schedules()
+    {
+        return $this->belongsToMany(Schedule::class);
+    }
+
+    public function image()
+    {
+        return $this->morphOne(Image::class, 'imageable');
+    }
+
+    public function students()
+    {
+        return $this->belongsToMany(User::class);
+    }
+
+    public function teacher()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }

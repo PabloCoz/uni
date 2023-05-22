@@ -36,8 +36,8 @@
     </div>
 
     <div>
-        {!! Form::label('schedule_id', 'Horarios') !!}
-        {!! Form::select('schedule_id', $schedules, null, ['class' => 'rounded w-full mt-1']) !!}
+        {!! Form::label('hours', 'Cantidad de horas') !!}
+        {!! Form::number('hours', null, ['class' => 'rounded w-full mt-1']) !!}
     </div>
 
 </div>
@@ -46,8 +46,8 @@
 
 <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
     <figure>
-        @isset($course->image)
-            <img id="picture" class="w-full h-64 object-cover object-center" src="{{ Storage::url($course->image->url) }}"
+        @isset($workshop->image)
+            <img id="picture" class="w-full h-64 object-cover object-center" src="{{ Storage::url($workshop->image->url) }}"
                 alt="">
         @else
             <img id="picture" class="w-full h-64 object-cover object-center" src="" alt="">

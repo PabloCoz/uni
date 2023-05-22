@@ -29,13 +29,13 @@
                             {{ $workshop->title }}
                         </th>
                         <td class="px-6 py-4">
-                            {{ $course->hours }} horas
+                            {{ $workshop->hours }} horas
                         </td>
                         <td class="px-6 py-4">
-                            {{ $course->modality->name }}
+                            {{ $workshop->modality->name }}
                         </td>
                         <td class="px-6 py-4">
-                            @if ($course->status == 1)
+                            @if ($workshop->status == 1)
                                 <span
                                     class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
                                     Elaboracion
@@ -49,13 +49,13 @@
                         </td>
                         <td>
                             <div class="space-x-2">
-                                <a href="{{ route('admin.courses.edit', $course) }}">
+                                <a href="{{ route('admin.workshops.edit', $workshop) }}">
                                     <i class="fa-solid fa-pen-to-square text-blue-500 text-lg cursor-pointer"></i>
                                 </a>
-                                <a href="{{ route('admin.courses.show', $course) }}">
+                                <a href="{{ route('admin.workshops.show', $workshop) }}">
                                     <i class="fa-solid fa-eye text-green-700 text-lg cursor-pointer"></i>
                                 </a>
-                                <form action="{{ route('admin.courses.destroy', $course) }}" method="POST"
+                                <form action="{{ route('admin.workshops.destroy', $workshop) }}" method="POST"
                                     class="inline-block">
                                     @csrf
                                     @method('delete')

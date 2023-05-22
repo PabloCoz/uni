@@ -15,4 +15,9 @@ class Schedule extends Model
     {
         return $this->belongsToMany(Course::class);
     }
+
+    public function workshops()
+    {
+        return $this->belongsToMany(Workshop::class);
+    }
 }
