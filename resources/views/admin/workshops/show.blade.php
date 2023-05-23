@@ -30,15 +30,15 @@
                 </li>
             </ul>
             <div x-show="openTab === 1">
-                {{-- @livewire('admin.courses.modules.module-index', ['course' => $course], key($course->id)) --}}
+                {{-- @livewire('admin.workshops.modules.module-index', ['workshop' => $workshop], key($workshop->id)) --}}
             </div>
 
             <div x-show="openTab === 2">
-                {{-- @livewire('admin.courses.schedules.schedule-index', ['course' => $course], key($course->id)) --}}
+                @livewire('admin.workshops.schedules.schedule-index', ['workshop' => $workshop], key($workshop->id))
             </div>
 
             <div x-show="openTab === 3">
-                {{-- @livewire('admin.courses.goals.goal-index', ['course' => $course], key($course->id)) --}}
+                @livewire('admin.workshops.goals.goal-index', ['workshop' => $workshop], key($workshop->id))
             </div>
 
             <div x-show="openTab === 4">

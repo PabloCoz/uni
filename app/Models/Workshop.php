@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 
 class Workshop extends Model
 {
@@ -29,7 +30,7 @@ class Workshop extends Model
         return $this->belongsTo(Modality::class);
     }
 
-    public function goals()
+    public function goals(): MorphMany
     {
         return $this->morphMany(Goal::class, 'goalable');
     }

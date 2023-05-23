@@ -15,4 +15,9 @@ class Session extends Model
     {
         return $this->belongsTo(Workshop::class);
     }
+
+    public function activity()
+    {
+        return $this->belongsTo(Activity::class);
+    }
 }
