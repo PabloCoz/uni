@@ -30,7 +30,7 @@
                 </li>
             </ul>
             <div x-show="openTab === 1">
-                {{-- @livewire('admin.workshops.modules.module-index', ['workshop' => $workshop], key($workshop->id)) --}}
+                @livewire('admin.workshops.sessions.session-index', ['workshop' => $workshop], key($workshop->id))
             </div>
 
             <div x-show="openTab === 2">
@@ -42,7 +42,7 @@
             </div>
 
             <div x-show="openTab === 4">
-                {{-- @livewire('admin.courses.students.student-index', ['course' => $course], key($course->id)) --}}
+                {{-- @livewire('admin.workshops.students.student-index', ['workshop' => $workshop], key($workshop->id)) --}}
             </div>
         </div>
     </div>

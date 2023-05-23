@@ -52,5 +52,7 @@ Route::middleware('auth')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::get('workshops', [WorkshopController::class, 'index'])->name('workshops.index');
     Route::get('workshops/{workshop}', [WorkshopController::class, 'show'])->name('workshops.show');
+    Route::post('workshops/{workshop}/enrolled', [WorkshopController::class, 'enrolled'])->name('workshops.enrolled');
+    
 });
 require __DIR__.'/auth.php';
