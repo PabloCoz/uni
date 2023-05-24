@@ -5,14 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Training extends Model
+class Theme extends Model
 {
     use HasFactory;
 
     protected $guarded = ['id'];
 
-    public function themes()
+    public function training()
     {
-        return $this->hasMany(Theme::class);
+        return $this->belongsTo(Training::class);
     }
 }
