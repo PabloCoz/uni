@@ -11,8 +11,13 @@ class Activity extends Model
 
     protected $guarded = ['id'];
 
-    public function sessions()
+    public function session()
     {
-        return $this->hasMany(Session::class);
+        return $this->belongsTo(Session::class);
+    }
+
+    public function modality()
+    {
+        return $this->belongsTo(Modality::class);
     }
 }

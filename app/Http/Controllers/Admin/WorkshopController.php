@@ -90,10 +90,8 @@ class WorkshopController extends Controller
 
     public function approvedWorkshop(Workshop $workshop)
     {
-        $this->authorize('revision', $workshop);
         $workshop->status = 3;
         $workshop->save();
-
         return redirect()->route('admin.courses.index')->with('info', 'Publicado correctamente');
     }
 }

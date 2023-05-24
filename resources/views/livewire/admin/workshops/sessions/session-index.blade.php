@@ -1,5 +1,5 @@
 <div class="mt-5">
-    <h2 class="font-semibold text-lg mb-5">Sessiones del taller</h2>
+    <h2 class="font-semibold text-lg mb-5">Sesiones del taller</h2>
     @foreach ($workshop->sessions as $item)
         <article class="overflow-hidden shadow rounded-lg mb-6">
             <div class="px-3 py-4 bg-gray-100">
@@ -22,7 +22,7 @@
                     </header>
 
                     <div>
-                        {{-- @livewire('admin.courses.lessons.lesson-index', ['module' => $item], key($item->id)) --}}
+                        @livewire('admin.workshops.activities.activiy-index', ['workshop' => $item], key($item->id))
                     </div>
 
                 @endif

@@ -11,7 +11,7 @@ class LessonIndex extends Component
 {
     public $readyToLoad = false;
 
-    public $module, $lesson, $modalities, $name, $url, $modalitiy_id, $description;
+    public $module, $lesson, $modalities, $name, $url, $modality_id, $description;
 
     protected $rules = [
         'lesson.name' => 'required',
@@ -38,6 +38,27 @@ class LessonIndex extends Component
         return view('livewire.admin.courses.lessons.lesson-index');
     }
 
+    public function store()
+    {
+        $this->validate([
+            'name' => 'required',
+            'modality_id' => 'required',
+            'description' => 'required',
+            'url' => 'nullable|url'
+        ]);
+
+        Lesson::create([
+            'name' => $this->name,
+            'modality_id' => $this->modality_id,
+            'description' => $this->description,
+            'url' => $this->url,
+            'module_id' => $this->module->id
+        ]);
+
+        $this->reset(['name', 'modality_id', 'description', 'url']);
+        $this->module = Module::find($this->module->id);
+    }
+
     public function edit(Lesson $lesson)
     {
         $this->resetValidation();
@@ -57,5 +78,11 @@ class LessonIndex extends Component
     public function cancel()
     {
         $this->lesson = new Lesson();
+    }
+
+    public function destroy(Lesson $lesson)
+    {
+        $lesson->delete();
+        $this->module = Module::find($this->module->id);
     }
 }

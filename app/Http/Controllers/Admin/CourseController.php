@@ -112,8 +112,6 @@ class CourseController extends Controller
 
     public function approvedCourse(Course $course)
     {
-        $this->authorize('revision', $course);
-        
         $course->status = 3;
         $course->save();
         return redirect()->route('admin.courses.index')->with('info', 'Publicado correctamente');

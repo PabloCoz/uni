@@ -1,21 +1,21 @@
-<div wire:init="loadLessons">
-    @foreach ($module->lessons as $item)
+<div wire:init="loadActivities">
+    @foreach ($session->activities as $item)
         <article class="bg-white rounded-lg overflow-hidden mt-4" x-data="{ open: false }">
             <div class="px-6 py-4">
-                @if ($lesson->id == $item->id)
+                @if ($activity->id == $item->id)
                     <form wire:submit.prevent="update">
                         <div class="flex items-center">
                             <label class="w-32">Nombre: </label>
-                            <input wire:model="lesson.name" type="text" class="rounded w-full">
+                            <input wire:model="activity.name" type="text" class="rounded w-full">
                         </div>
 
-                        @error('lesson.name')
+                        @error('activity.name')
                             <span class="text-xs text-red-500">{{ $message }}</span>
                         @enderror
 
                         <div class="flex items-center mt-4">
                             <label class="w-32">Plataforma: </label>
-                            <select class="w-full rounded" wire:model="lesson.modality_id">
+                            <select class="w-full rounded" wire:model="activity.modality_id">
                                 @foreach ($modalities as $modality)
                                     <option value="{{ $modality->id }}">{{ $modality->name }}</option>
                                 @endforeach
@@ -24,20 +24,20 @@
 
                         <div class="flex items-center mt-4">
                             <label class="w-32">Descripción: </label>
-                            <textarea wire:model="lesson.description" class="rounded w-full"></textarea>
+                            <textarea wire:model="activity.description" class="rounded w-full"></textarea>
                         </div>
 
-                        @error('lesson.description')
+                        @error('activity.description')
                             <span class="text-xs text-red-500">{{ $message }}</span>
                         @enderror
 
-                        @if ($lesson->modality_id == 2)
+                        @if ($activity->modality_id == 2)
                             <div class="flex items-center mt-4">
                                 <label class="w-32">URL: </label>
-                                <input wire:model="lesson.url" type="text" class="rounded w-full">
+                                <input wire:model="activity.url" type="text" class="rounded w-full">
                             </div>
                         @endif
-                        @error('lesson.url')
+                        @error('activity.url')
                             <span class="text-xs text-red-500">{{ $message }}</span>
                         @enderror
 
@@ -52,7 +52,7 @@
                 @else
                     <header>
                         <h1 @click="open = !open" class="cursor-pointer"><i
-                                class="far fa-play-circle text-red-500 mr-1"></i>Lección: {{ $item->name }}</h1>
+                                class="far fa-play-circle text-red-500 mr-1"></i>Actividad: {{ $item->name }}</h1>
                     </header>
 
                     <div x-show="open">
@@ -71,11 +71,6 @@
                             <button class="block rounded p-2 font-bold text-sm text-white bg-red-500"
                                 wire:click="destroy({{ $item }})">Eliminar</button>
                         </div>
-
-                        <div>
-                            @livewire('admin.courses.lessons.lesson-resource', ['lesson' => $item], key('lesson-resources' . $item->id))
-                        </div>
-                    </div>
                 @endif
             </div>
         </article>
@@ -84,12 +79,12 @@
     <div class="mt-4" x-data="{ open: false }">
         <a x-show="!open" @click="open = true" class="flex items-center cursor-pointer">
             <i class="far fa-plus-square text-xl mr-1 text-red-600"></i>
-            <h3 class="text-base font-semibold">Agregar Lecciones</h3>
+            <h3 class="text-base font-semibold">Agregar Actividad</h3>
         </a>
 
         <article class="bg-white rounded-lg overflow-hidden mt-2" x-show="open">
             <div class="px-6 py-4">
-                <h1 class="text-xl font-bold mb-4">Agregar nueva lección</h1>
+                <h1 class="text-xl font-bold mb-4">Agregar nueva actividad</h1>
 
                 <div>
                     <div class="flex items-center">

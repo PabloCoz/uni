@@ -16,8 +16,8 @@ class Session extends Model
         return $this->belongsTo(Workshop::class);
     }
 
-    public function activity()
+    public function activities()
     {
-        return $this->belongsTo(Activity::class);
+        return $this->hasMany(Activity::class);
     }
 }
