@@ -3,7 +3,7 @@
         <div class="my-5">
             <h1 class="font-bold text-2xl uppercase">cursos</h1>
         </div>
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
             @foreach ($courses as $course)
                 <div>
                     <x-course-card :course="$course" />

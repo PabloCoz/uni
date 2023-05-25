@@ -4,6 +4,7 @@ use App\Http\Controllers\CourseController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostulantController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TrainingController;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\WorkshopController;
 use App\Http\Livewire\Courses\CourseStatus;
@@ -55,4 +56,9 @@ Route::middleware('auth')->group(function () {
     Route::post('workshops/{workshop}/enrolled', [WorkshopController::class, 'enrolled'])->name('workshops.enrolled');
     
 });
+
+Route::middleware('auth')->group(function (){
+    Route::get('trainings', [TrainingController::class, 'index'])->name('trainings.index');
+});
+
 require __DIR__.'/auth.php';

@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\PostulantController;
 use App\Http\Controllers\Admin\ScheduleController;
 use App\Http\Controllers\Admin\SliderController;
+use App\Http\Controllers\Admin\TrainingController;
 use App\Http\Controllers\Admin\WorkshopController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,5 +20,8 @@ Route::resource('schedules', ScheduleController::class)->names('admin.schedules'
 
 Route::resource('workshops', WorkshopController::class)->names('admin.workshops');
 Route::post('workshop/{workshop}/approvedWorkshop', [WorkshopController::class, 'approvedWorkshop'])->name('admin.workshops.approvedWorkshop');
+
+Route::resource('trainings', TrainingController::class)->names('admin.trainings');
+Route::post('training/{training}/approvedTraining', [TrainingController::class, 'approvedTraining'])->name('admin.trainings.approvedTraining');
 
 Route::resource('sliders', SliderController::class)->names('admin.sliders');

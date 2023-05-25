@@ -51,20 +51,23 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{route('admin.courses.index')}}" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100">
+                    <a href="{{ route('admin.courses.index') }}"
+                        class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100">
                         <i class="fa-solid fa-book"></i>
                         <span class="flex-1 ml-3">Cursos</span>
 
                     </a>
                 </li>
                 <li>
-                    <a href="{{route('admin.workshops.index')}}" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100">
+                    <a href="{{ route('admin.workshops.index') }}"
+                        class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100">
                         <i class="fa-solid fa-screwdriver-wrench"></i>
                         <span class="flex-1 ml-3">Talleres</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100">
+                    <a href="{{ route('admin.trainings.index') }}"
+                        class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100">
                         <i class="fa-solid fa-chalkboard-user"></i>
                         <span class="flex-1 ml-3">Capacitaciones</span>
                     </a>
@@ -76,7 +79,8 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{route('admin.schedules.index')}}" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100">
+                    <a href="{{ route('admin.schedules.index') }}"
+                        class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100">
                         <i class="fa-solid fa-clock"></i>
                         <span class="flex-1 ml-3">Horarios</span>
                     </a>
