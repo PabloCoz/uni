@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 
 class Training extends Model
 {
@@ -18,7 +19,7 @@ class Training extends Model
     {
         return "slug";
     }
-    
+
     public function themes()
     {
         return $this->hasMany(Theme::class);
@@ -32,5 +33,25 @@ class Training extends Model
     public function image()
     {
         return $this->morphOne(Image::class, 'imageable');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class. 'user_id');
+    }
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class)->withTimestamps();
+    }
+
+    public function schedules()
+    {
+        return $this->belongsToMany(Schedule::class)->withTimestamps();
+    }
+
+    public function goals(): MorphMany
+    {
+        return $this->morphMany(Goal::class, 'goalable');
     }
 }

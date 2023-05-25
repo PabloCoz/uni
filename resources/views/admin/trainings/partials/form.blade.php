@@ -11,7 +11,7 @@
 
 <div class="mb-4">
     {!! Form::label('slug', 'Slug del curso') !!}
-    {!! Form::hidden('slug', null, ['class' => 'rounded w-full mt-1', 'readonly']) !!}
+    {!! Form::text('slug', null, ['class' => 'rounded w-full mt-1', 'readonly']) !!}
 
     @error('slug')
         <strong class="text-xs text-red-500">{{ $message }}</strong>

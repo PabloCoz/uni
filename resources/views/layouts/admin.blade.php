@@ -45,7 +45,8 @@
             </a>
             <ul class="space-y-2 font-medium">
                 <li>
-                    <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100">
+                    <a href="{{ route('admin.home') }}"
+                        class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100">
                         <i class="fa-solid fa-house"></i>
                         <span class="ml-3">Inicio</span>
                     </a>
