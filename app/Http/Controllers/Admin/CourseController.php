@@ -67,7 +67,7 @@ class CourseController extends Controller
     public function edit(Course $course): View
     {
         $modalities = Modality::pluck('name', 'id');
-        return view('admin.courses.edit', compact('course', 'modalities', 'schedules'));
+        return view('admin.courses.edit', compact('course', 'modalities'));
     }
 
     /**

@@ -22,7 +22,7 @@
                     </header>
 
                     <div>
-                        @livewire('admin.workshops.activities.activiy-index', ['workshop' => $item], key($item->id))
+                        @livewire('admin.workshops.activities.activiy-index', ['session' => $item], key($item->id))
                     </div>
 
                 @endif

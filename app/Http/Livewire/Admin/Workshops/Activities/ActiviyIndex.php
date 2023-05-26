@@ -56,7 +56,7 @@ class ActiviyIndex extends Component
         Activity::create([
             'name' => $this->name,
             'modality_id' => $this->modality_id,
-            'description' => $this->descriptio,
+            'description' => $this->description,
             'url' => $this->url,
             'session_id' => $this->session->id
         ]);

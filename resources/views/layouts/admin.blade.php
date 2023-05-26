@@ -14,6 +14,8 @@
 
     <script src="https://kit.fontawesome.com/2537d8fed3.js" crossorigin="anonymous"></script>
     <script src="https://cdn.ckeditor.com/ckeditor5/37.1.0/classic/ckeditor.js"></script>
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.7/index.global.min.js'></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -116,7 +118,7 @@
         </div>
     </aside>
 
-    <div class="p-8 sm:ml-64">
+    <div class="p-5 md:p-8 sm:ml-64">
         <main>
             {{ $slot }}
         </main>
@@ -126,6 +128,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
     @stack('form')
     @stack('ckeditor')
+    @stack('swiper')
 </body>
 
 </html>
