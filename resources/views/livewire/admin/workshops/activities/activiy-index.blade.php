@@ -1,6 +1,6 @@
 <div wire:init="loadActivities">
     @foreach ($session->activities as $item)
-        <article class="bg-white rounded-lg overflow-hidden mt-4" x-data="{ open: false }">
+        <article class="bg-gray-100 rounded-lg overflow-hidden mt-4" x-data="{ open: false }">
             <div class="px-6 py-4">
                 @if ($activity->id == $item->id)
                     <form wire:submit.prevent="update">

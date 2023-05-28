@@ -39,6 +39,9 @@ class CourseController extends Controller
             'description' => 'required',
             'modality_id' => 'required',
             'user_id' => 'required',
+            'hours' => 'required',
+            'start_date' => 'required',
+            'end_date' => 'required',
             'file' => 'image',
         ]);
         $course = Course::create($request->all());
@@ -78,8 +81,11 @@ class CourseController extends Controller
         $request->validate([
             'title' => 'required',
             'slug' => "required|unique:courses,slug,$course->id",
+            'hours' => 'required',
             'description' => 'required',
             'modality_id' => 'required',
+            'start_date' => 'required',
+            'end_date' => 'required',
             'file' => 'image',
         ]);
         $course->update($request->all());
@@ -112,7 +118,7 @@ class CourseController extends Controller
 
     public function approvedCourse(Course $course)
     {
-        $course->status = 3;
+        $course->status = 2;
         $course->save();
         return redirect()->route('admin.courses.index')->with('info', 'Publicado correctamente');
     }

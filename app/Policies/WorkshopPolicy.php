@@ -3,6 +3,7 @@
 namespace App\Policies;
 
 use App\Models\User;
+use App\Models\Workshop;
 
 class WorkshopPolicy
 {
@@ -13,4 +14,10 @@ class WorkshopPolicy
     {
         //
     }
+
+    public function enrolled(User $user, Workshop $workshop)
+    {
+        return $workshop->students->contains($user->id);
+    }
+
 }

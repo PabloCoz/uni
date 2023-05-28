@@ -26,6 +26,8 @@ class CourseFactory extends Factory
             'hours' => $this->faker->numberBetween(10, 100),
             'status' => $this->faker->randomElement([1, 2]),
             'slug' => Str::slug($title),
+            'start_date' => $this->faker->date(),
+            'end_date' => $this->faker->date(),
             'modality_id' => Modality::all()->random()->id,
             'user_id' => 1,
         ];

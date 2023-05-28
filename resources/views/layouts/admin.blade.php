@@ -23,11 +23,11 @@
     @livewireStyles
 </head>
 
-<body class="font-sans antialiased bg-white">
+<body class="font-sans antialiased bg-gray-100">
 
     <button data-drawer-target="logo-sidebar" data-drawer-toggle="logo-sidebar" aria-controls="logo-sidebar"
         type="button"
-        class="inline-flex items-center p-2 mt-2 ml-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:focus:ring-gray-600">
+        class="inline-flex items-center p-2 mt-2 ml-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-gray-200">
         <span class="sr-only">Open sidebar</span>
         <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
             xmlns="http://www.w3.org/2000/svg">
@@ -40,22 +40,22 @@
     <aside id="logo-sidebar"
         class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0"
         aria-label="Sidebar">
-        <div class="h-full px-3 py-4 overflow-y-auto bg-gray-200 shadow-lg shadow-gray-600">
+        <div class="h-full px-3 py-4 overflow-y-auto bg-gray-900 shadow-lg shadow-slate-600">
             <a href="{{ route('admin.home') }}" class="flex items-center pl-2.5 mb-5">
                 <img src="https://flowbite.com/docs/images/logo.svg" class="h-6 mr-3 sm:h-7" alt="Flowbite Logo" />
-                <span class="self-center text-xl font-semibold">UNACH</span>
+                <span class="self-center text-xl font-semibold text-white">UNACH</span>
             </a>
             <ul class="space-y-2 font-medium">
                 <li>
                     <a href="{{ route('admin.home') }}"
-                        class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100">
+                        class="flex items-center p-2 text-gray-100 rounded-lg hover:bg-gray-700 hover:text-white">
                         <i class="fa-solid fa-house"></i>
                         <span class="ml-3">Inicio</span>
                     </a>
                 </li>
                 <li>
                     <a href="{{ route('admin.courses.index') }}"
-                        class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100">
+                        class="flex items-center p-2 text-gray-100 rounded-lg hover:bg-gray-700 hover:text-white">
                         <i class="fa-solid fa-book"></i>
                         <span class="flex-1 ml-3">Cursos</span>
 
@@ -63,53 +63,56 @@
                 </li>
                 <li>
                     <a href="{{ route('admin.workshops.index') }}"
-                        class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100">
+                        class="flex items-center p-2 text-gray-100 rounded-lg hover:bg-gray-700 hover:text-white">
                         <i class="fa-solid fa-screwdriver-wrench"></i>
                         <span class="flex-1 ml-3">Talleres</span>
                     </a>
                 </li>
                 <li>
                     <a href="{{ route('admin.trainings.index') }}"
-                        class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100">
+                        class="flex items-center p-2 text-gray-100 rounded-lg hover:bg-gray-700 hover:text-white">
                         <i class="fa-solid fa-chalkboard-user"></i>
                         <span class="flex-1 ml-3">Capacitaciones</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100">
+                    <a href="{{ route('admin.events.index') }}"
+                        class="flex items-center p-2 text-gray-100 rounded-lg hover:bg-gray-700 hover:text-white">
                         <i class="fa-solid fa-group-arrows-rotate"></i>
-                        <span class="flex-1 ml-3">Desafios</span>
+                        <span class="flex-1 ml-3">Eventos</span>
                     </a>
                 </li>
                 <li>
                     <a href="{{ route('admin.schedules.index') }}"
-                        class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100">
+                        class="flex items-center p-2 text-gray-100 rounded-lg hover:bg-gray-700 hover:text-white">
                         <i class="fa-solid fa-clock"></i>
                         <span class="flex-1 ml-3">Horarios</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100">
+                    <a href="#"
+                        class="flex items-center p-2 text-gray-100 rounded-lg hover:bg-gray-700 hover:text-white">
                         <i class="fa-solid fa-users"></i>
                         <span class="flex-1 ml-3">Alumnos</span>
                     </a>
                 </li>
                 <li>
                     <a href="{{ route('admin.postulants') }}"
-                        class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100">
+                        class="flex items-center p-2 text-gray-100 rounded-lg hover:bg-gray-700 hover:text-white">
                         <i class="fa-solid fa-user-clock"></i>
                         <span class="flex-1 ml-3">Postulantes</span>
                     </a>
                 </li>
                 <li>
                     <a href="{{ route('admin.sliders.index') }}"
-                        class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100">
+                        class="flex items-center p-2 text-gray-100 rounded-lg hover:bg-gray-700 hover:text-white">
                         <i class="fa-solid fa-rectangle-ad"></i>
                         <span class="flex-1 ml-3">Gestion de Anuncios</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100">
+                    <a href="#"
+                        class="flex items-center p-2 text-gray-100 rounded-lg hover:bg-gray-700 hover:text-white">
                         <i class="fa-solid fa-circle-left"></i>
                         <span class="flex-1 ml-3">Cerrar Sesión</span>
                     </a>

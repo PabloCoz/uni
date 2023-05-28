@@ -19,7 +19,10 @@ return new class extends Migration
             $table->text("description");
             $table->integer('hours');
             $table->enum('status', [Workshop::ELABORACION, Workshop::PUBLICADO])->default(Workshop::ELABORACION);
+            $table->date('start_date');
+            $table->date('end_date');
             $table->foreignId('modality_id')->constrained();
+            $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });
     }

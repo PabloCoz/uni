@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Course;
+use App\Models\Event;
 use App\Models\Postulant;
 use App\Models\Slider;
 use App\Models\Training;
@@ -19,7 +20,9 @@ class HomeController extends Controller
         $workshops = $this->workshops();
         $postulants = $this->postulants();
         $sliders = $this->sliders();
-        return view('admin.home', compact('courses', 'trainings', 'workshops', 'postulants', 'sliders'));
+        $postulants = $this->postulantsList();
+        $events = $this->events();
+        return view('admin.home', compact('courses', 'trainings', 'workshops', 'postulants', 'sliders', 'postulants', 'events'));
     }
 
     public function courses()
@@ -45,5 +48,15 @@ class HomeController extends Controller
     public function sliders()
     {
         return Slider::all();
+    }
+
+    public function postulantsList()
+    {
+        return Postulant::where('validated', false)->take(5)->latest()->get();
+    }
+
+    public function events()
+    {
+        return Event::count();
     }
 }

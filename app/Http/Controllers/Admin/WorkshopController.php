@@ -29,6 +29,9 @@ class WorkshopController extends Controller
             'description' => 'required',
             'modality_id' => 'required',
             'user_id' => 'required',
+            'hours' => 'required',
+            'start_date' => 'required',
+            'end_date' => 'required',
             'file' => 'image',
         ]);
         $workshop = Workshop::create($request->all());
@@ -61,6 +64,9 @@ class WorkshopController extends Controller
             'slug' => "required|unique:workshops,slug,$workshop->id",
             'description' => 'required',
             'modality_id' => 'required',
+            'hours' => 'required',
+            'start_date' => 'required',
+            'end_date' => 'required',
             'file' => 'image',
         ]);
         $workshop->update($request->all());

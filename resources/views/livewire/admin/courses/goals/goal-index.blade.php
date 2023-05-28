@@ -2,7 +2,7 @@
     <h2 class="font-semibold text-lg mb-5">Metas del curso</h2>
     @foreach ($course->goals as $item)
         <article class="overflow-hidden rounded-lg shadow mb-4">
-            <div class="px-6 py-4 bg-gray-100">
+            <div class="px-6 py-4 bg-white">
                 @if ($goal->id == $item->id)
                     <form wire:submit.prevent="update">
                         <input wire:model="goal.name" type="text" class="form-input w-full">
@@ -27,7 +27,7 @@
     @endforeach
 
     <article class="overflow-hidden rounded-lg shadow">
-        <div class="px-6 py-4 bg-gray-100">
+        <div class="px-6 py-4 bg-white">
             <form wire:submit.prevent="store">
                 <input wire:model="name" type="text" class="rounded w-full"
                     placeholder="Agregar una meta...">

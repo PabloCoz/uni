@@ -42,6 +42,25 @@
 
 </div>
 
+<div class="grid grid-cols-2 lg:grid-cols-2 gap-4">
+    <div>
+        {!! Form::label('start_date', 'Fecha Inicio') !!}
+        {!! Form::date('start_date', null, ['class' => 'rounded w-full mt-1']) !!}
+        @error('start_date')
+            <strong class="text-xs text-red-500">{{ $message }}</strong>
+        @enderror
+    </div>
+    
+    <div>
+        {!! Form::label('end_date', 'Fecha Fin') !!}
+        {!! Form::date('end_date', null, ['class' => 'rounded w-full mt-1']) !!}
+        @error('end_date')
+            <strong class="text-xs text-red-500">{{ $message }}</strong>
+        @enderror
+    </div>
+
+</div>
+
 <h1 class="text-2xl font-bold mt-8 mb-2">Imagen del taller</h1>
 
 <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">

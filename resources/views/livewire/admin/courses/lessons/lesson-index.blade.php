@@ -4,7 +4,7 @@
             <div class="px-6 py-4">
                 @if ($lesson->id == $item->id)
                     <form wire:submit.prevent="update">
-                        <div class="flex items-center">
+                        <div class="block md:flex items-center">
                             <label class="w-32">Nombre: </label>
                             <input wire:model="lesson.name" type="text" class="rounded w-full">
                         </div>
@@ -13,7 +13,7 @@
                             <span class="text-xs text-red-500">{{ $message }}</span>
                         @enderror
 
-                        <div class="flex items-center mt-4">
+                        <div class="block md:flex items-center mt-4">
                             <label class="w-32">Plataforma: </label>
                             <select class="w-full rounded" wire:model="lesson.modality_id">
                                 @foreach ($modalities as $modality)
@@ -22,7 +22,7 @@
                             </select>
                         </div>
 
-                        <div class="flex items-center mt-4">
+                        <div class="block md:flex items-center mt-4">
                             <label class="w-32">Descripción: </label>
                             <textarea wire:model="lesson.description" class="rounded w-full"></textarea>
                         </div>
@@ -32,7 +32,7 @@
                         @enderror
 
                         @if ($lesson->modality_id == 2)
-                            <div class="flex items-center mt-4">
+                            <div class="block md:flex items-center mt-4">
                                 <label class="w-32">URL: </label>
                                 <input wire:model="lesson.url" type="text" class="rounded w-full">
                             </div>
@@ -87,7 +87,7 @@
             <h3 class="text-base font-semibold">Agregar Lecciones</h3>
         </a>
 
-        <article class="bg-white rounded-lg overflow-hidden mt-2" x-show="open">
+        <article class="bg-gray-100 rounded-lg overflow-hidden mt-2" x-show="open">
             <div class="px-6 py-4">
                 <h1 class="text-xl font-bold mb-4">Agregar nueva lección</h1>
 

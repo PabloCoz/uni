@@ -62,6 +62,8 @@ class TrainingController extends Controller
             'slug' => "required|unique:trainings,slug,$training->id",
             'description' => 'required',
             'modality_id' => 'required',
+            'start_date' => 'required',
+            'end_date' => 'required',
             'file' => 'image',
         ]);
         $training->update($request->all());

@@ -1,17 +1,25 @@
 <x-admin-layout>
-    <div class="max-w-6xl mx-auto px-6 lg:px-8">
+    <div class="max-w-6xl mx-auto lg:px-8">
         <div class="flex justify-between items-center">
             <h1 class="text-2xl font-bold">{{ $course->title }}</h1>
+            @if ($course->status == 1)
+                <form action="{{ route('admin.courses.approvedCourse', $course) }}" method="POST">
+                    @csrf
+                    <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                        Publicar curso
+                    </button>
+                </form>
+            @endif
         </div>
 
         <div class="mt-5" x-data="{
             openTab: 1,
-            activeClasses: 'text-blue-600 bg-gray-100 rounded-t-lg',
+            activeClasses: 'text-blue-600 bg-white rounded-t-lg',
             inactiveClasses: 'text-blue-500 hover:text-blue-800'
         }">
 
             <ul
-                class="flex flex-wrap text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400">
+                class="block md:flex flex-wrap text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400">
                 <li class="mr-2" @click="openTab = 1">
                     <button :class="openTab === 1 ? activeClasses : inactiveClasses"
                         class="inline-block p-4 focus:outline-none">Módulos y Lecciones</button>

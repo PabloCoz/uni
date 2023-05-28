@@ -10,7 +10,7 @@
 
     <div>
         @forelse ( $course->schedules as  $item)
-            <article class="overflow-hidden rounded-lg bg-gray-100 mb-4">
+            <article class="overflow-hidden rounded-lg bg-white mb-4">
                 <div class="px-6 py-4">
                     <div>
                         <ul class="space-y-2">
@@ -28,7 +28,7 @@
                 <p class="text-sm">No hay horarios asignados</p>
                 <div class="mb-6">
 
-                    <article class="overflow-hidden rounded-lg bg-gray-100 mb-4">
+                    <article class="overflow-hidden rounded-lg bg-white mb-4">
                         <div class="px-6 py-4">
                             <header class="">
                                 <h1 class="font-bold">Lista de horarios</h1>

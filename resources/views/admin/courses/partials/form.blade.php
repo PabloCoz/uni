@@ -33,11 +33,36 @@
     <div>
         {!! Form::label('modality_id', 'Modalidad') !!}
         {!! Form::select('modality_id', $modalities, null, ['class' => 'rounded w-full mt-1']) !!}
+        @error('modality_id')
+            <strong class="text-xs text-red-500">{{ $message }}</strong>
+        @enderror
     </div>
 
     <div>
         {!! Form::label('hours', 'Cantidad de horas') !!}
         {!! Form::number('hours', null, ['class' => 'rounded w-full mt-1']) !!}
+        @error('hours')
+            <strong class="text-xs text-red-500">{{ $message }}</strong>
+        @enderror
+    </div>
+
+</div>
+
+<div class="grid grid-cols-2 lg:grid-cols-2 gap-4">
+    <div>
+        {!! Form::label('start_date', 'Fecha Inicio') !!}
+        {!! Form::date('start_date', null, ['class' => 'rounded w-full mt-1']) !!}
+        @error('start_date')
+            <strong class="text-xs text-red-500">{{ $message }}</strong>
+        @enderror
+    </div>
+    
+    <div>
+        {!! Form::label('end_date', 'Fecha Fin') !!}
+        {!! Form::date('end_date', null, ['class' => 'rounded w-full mt-1']) !!}
+        @error('end_date')
+            <strong class="text-xs text-red-500">{{ $message }}</strong>
+        @enderror
     </div>
 
 </div>

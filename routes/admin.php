@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\CourseController;
+use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\PostulantController;
 use App\Http\Controllers\Admin\ScheduleController;
@@ -25,3 +26,5 @@ Route::resource('trainings', TrainingController::class)->names('admin.trainings'
 Route::post('training/{training}/approvedTraining', [TrainingController::class, 'approvedTraining'])->name('admin.trainings.approvedTraining');
 
 Route::resource('sliders', SliderController::class)->names('admin.sliders');
+
+Route::resource('events', EventController::class)->names('admin.events');

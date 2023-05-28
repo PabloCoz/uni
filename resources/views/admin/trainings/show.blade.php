@@ -2,6 +2,14 @@
     <div class="max-w-6xl mx-auto px-6 lg:px-8">
         <div class="flex justify-between items-center">
             <h1 class="text-2xl font-bold">{{ $training->title }}</h1>
+            @if ($training->status == 1)
+                <form action="{{ route('admin.trainings.approvedTraining', $training) }}" method="POST">
+                    @csrf
+                    <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                        Publicar taller
+                    </button>
+                </form>
+            @endif
         </div>
 
         <div class="mt-5" x-data="{

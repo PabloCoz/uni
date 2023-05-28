@@ -1,5 +1,5 @@
 <div class="shadow-md overflow-hidden rounded-lg" x-data="{ open: false }">
-    <div class="px-6 py-4 bg-gray-100">
+    <div class="px-6 py-4 bg-white">
         <header>
             <h1 @click="open = !open" class="cursor-pointer">Recursos:</h1>
         </header>

@@ -2,32 +2,26 @@
     <section class="bg-gray-900 mb-10">
         <div class="max-w-6xl mx-auto py-12 grid grid-cols-1 lg:grid-cols-2 gap-6">
             <figure>
-                <img class="h-72 w-full object-cover rounded select-none" src="{{ Storage::url($course->image->url) }}"
-                    alt="">
+                <img class="h-72 w-full object-cover rounded-lg select-none" src="{{ Storage::url($course->image->url) }}"
+                    loading="lazy">
             </figure>
 
 
-            <div class="text-white">
+            <div class="text-white mx-2 lg:mx-0">
                 <h1 class="text-3xl font-bold my-1">{{ $course->title }}</h1>
-                <h1 class="text-lg mb-6">{{ $course->subtitle }}</h1>
-                <p><i class="fas fa-users mr-2"></i>{{ $course->students_count }} estudiantes</p>
-                <div class="flex items-center">
-                    <ul class="flex text-sm">
-                        <li class="mr-1"><i
-                                class="fas fa-star text-{{ $course->rating >= 1 ? 'yellow' : 'gray' }}-400"></i></li>
-                        <li class="mr-1"><i
-                                class="fas fa-star text-{{ $course->rating >= 2 ? 'yellow' : 'gray' }}-400"></i></li>
-                        <li class="mr-1"><i
-                                class="fas fa-star text-{{ $course->rating >= 3 ? 'yellow' : 'gray' }}-400"></i></li>
-                        <li class="mr-1"><i
-                                class="fas fa-star text-{{ $course->rating >= 4 ? 'yellow' : 'gray' }}-400"></i></li>
-                        <li class="mr-1"><i
-                                class="fas fa-star text-{{ $course->rating == 5 ? 'yellow' : 'gray' }}-400"></i></li>
-                    </ul>
-                    <p class="ml-2">({{ $course->rating }})</p>
+                <hr class="mt-2 mb-3">
+                <div class="text-base text-justify">
+                    {!! $course->description !!}
                 </div>
-                <a href="#">Prof. {{ $course->teacher->name . ' ' . $course->teacher->lastname }}</a>
-                <div class="flex items-center mt-6">
+                <p class="mt-3"><i class="fas fa-users mr-2"></i>{{ $course->students_count }} estudiantes</p>
+
+                <div class="flex items-center mt-3">
+                    <i class="fa-regular fa-calendar-days"></i>
+                    <p class="mx-1">{{ Carbon\Carbon::parse($course->start_date)->format('d/m/Y') }} -
+                        {{ Carbon\Carbon::parse($course->end_date)->format('d/m/Y') }}</p>
+                </div>
+                
+                <div class="flex items-center mt-3">
                     <i class="fa-solid fa-chalkboard-user"></i>
                     <p class="mx-1">{{ $course->modality->name }}</p>
                 </div>
@@ -80,15 +74,6 @@
                         </div>
                     </article>
                 @endforeach
-            </section>
-
-            <section class="mb-8">
-                <h1 class="font-bold text-3xl">Descripcion:</h1>
-
-                <div class="text-base text-gray-700">
-                    {!! $course->description !!}
-                </div>
-
             </section>
         </div>
 

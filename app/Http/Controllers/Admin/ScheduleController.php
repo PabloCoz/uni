@@ -31,8 +31,8 @@ class ScheduleController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'start' => 'required|time',
-            'end' => 'required|time|after:start',
+            'start' => 'required|date_format:H:i',
+            'end' => 'required|date_format:H:i|after:start',
             'date' => 'required|string|max:255',
         ]);
 
@@ -67,11 +67,11 @@ class ScheduleController extends Controller
     public function update(Request $request, Schedule $schedule)
     {
         $request->validate([
-            'start' => 'required|time',
-            'end' => 'required|time|after:start',
+            'start' => 'required|date_format:H:i',
+            'end' => 'required|date_format:H:i|after:start',
             'date' => 'required|string|max:255',
         ]);
-
+        
         $schedule->update([
             'start' => $request->start,
             'end' => $request->end,

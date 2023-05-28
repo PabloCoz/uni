@@ -2,7 +2,7 @@
     <h2 class="font-semibold text-lg mb-5">Módulos del curso</h2>
     @foreach ($course->modules as $item)
         <article class="overflow-hidden shadow rounded-lg mb-6">
-            <div class="px-3 py-4 bg-gray-100">
+            <div class="px-3 py-4 bg-white">
                 @if ($module->id == $item->id)
                     <form wire:submit.prevent="update">
                         <input wire:model="module.name" type="text" class="w-full rounded" placeholder="Ingrese nombre del módulo">
@@ -37,7 +37,7 @@
         </a>
 
         <article class="overflow-hidden shadow rounded-lg mt-2" x-show="open">
-            <div class="px-3 py-4 bg-gray-100">
+            <div class="px-3 py-4 bg-white">
                 <h1 class="text-xl font-bold mb-4">Agregar nuevo módulo</h1>
 
                 <div>

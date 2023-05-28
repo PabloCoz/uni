@@ -2,7 +2,7 @@
     <h2 class="font-semibold text-lg mb-5">Sesiones del taller</h2>
     @foreach ($workshop->sessions as $item)
         <article class="overflow-hidden shadow rounded-lg mb-6">
-            <div class="px-3 py-4 bg-gray-100">
+            <div class="px-3 py-4 bg-white">
                 @if ($session->id == $item->id)
                     <form wire:submit.prevent="update">
                         <input wire:model="session.name" type="text" class="w-full rounded" placeholder="Ingrese nombre del módulo">
