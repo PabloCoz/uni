@@ -20,4 +20,13 @@ class WorkshopPolicy
         return $workshop->students->contains($user->id);
     }
 
+    public function published(?User $user, Workshop $workshop)
+    {
+        if ($workshop->status == 2) {
+            return true;
+        }else{
+            return false;
+        }
+    }
+
 }

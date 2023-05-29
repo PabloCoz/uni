@@ -90,4 +90,11 @@ class TrainingController extends Controller
         $training->delete();
         return redirect()->route('admin.trainings.index')->with('info', 'El curso se eliminó con éxito');
     }
+
+    public function approvedTraining(Training $training)
+    {
+        $training->status = 2;
+        $training->save();
+        return redirect()->route('admin.trainings.index')->with('info', 'El curso se aprobó con éxito');
+    }
 }

@@ -6,10 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Aprobación de usuario</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body>
-
+<body class="bg-gray-100">
+    <h1 class="font-bold text-center text-2xl">INCUBA UNACH</h1>
     <div>
         <h1>¡Hola {{ $user->name }}!</h1>
         <p>Te informamos que tu cuenta ha sido aprobada.</p>

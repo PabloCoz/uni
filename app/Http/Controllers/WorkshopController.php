@@ -22,7 +22,7 @@ class WorkshopController extends Controller
     public function enrolled(Workshop $workshop)
     {
         $workshop->students()->attach(auth()->user()->id);
-        return redirect()->route('courses.status', $workshop);
+        return redirect()->route('workshops.status', $workshop);
     }
 
     public function sliders()

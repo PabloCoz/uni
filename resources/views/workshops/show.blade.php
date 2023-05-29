@@ -2,8 +2,8 @@
     <section class="bg-gray-900 mb-10">
         <div class="max-w-6xl mx-auto py-12 grid grid-cols-1 lg:grid-cols-2 gap-6">
             <figure>
-                <img class="h-72 w-full object-cover rounded-lg select-none"
-                    src="{{ Storage::url($workshop->image->url) }}" loading="lazy">
+                <img class="h-72 w-full object-cover rounded-lg select-none" src="{{ Storage::url($workshop->image->url) }}"
+                    loading="lazy">
             </figure>
 
 
@@ -13,13 +13,14 @@
                 <div class="text-base text-justify">
                     {!! $workshop->description !!}
                 </div>
-                <p class="mt-3"><i class="fas fa-users mr-2"></i>{{ $workshop->students_count }} estudiantes</p>
+                <p class="mt-3"><i class="fas fa-users mr-2"></i>{{ $workshop->students_count }}</p>
 
                 <div class="flex items-center mt-3">
                     <i class="fa-regular fa-calendar-days"></i>
-                    <p class="mx-1">{{ $workshop->start_date }}</p>
+                    <p class="mx-1">{{ Carbon\Carbon::parse($workshop->start_date)->format('d/m/Y') }} -
+                        {{ Carbon\Carbon::parse($workshop->end_date)->format('d/m/Y') }}</p>
                 </div>
-
+                
                 <div class="flex items-center mt-3">
                     <i class="fa-solid fa-chalkboard-user"></i>
                     <p class="mx-1">{{ $workshop->modality->name }}</p>
@@ -67,8 +68,7 @@
                             <ul class="grid grid-cols-1 gap-2">
                                 @foreach ($session->activities as $activity)
                                     <li class="text-gray-700 text-base"><i
-                                            class="far fa-play-circle mr-2 text-green-400"></i>{{ $activity->name }}
-                                    </li>
+                                            class="far fa-play-circle mr-2 text-green-400"></i>{{ $activity->name }}</li>
                                 @endforeach
                             </ul>
                         </div>

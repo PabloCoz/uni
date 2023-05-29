@@ -51,7 +51,7 @@ class ThemeIndex extends Component
             'training_id' => $this->training->id
         ]);
 
-        $this->reset('name');
+        $this->reset('name', 'description');
 
         $this->training = Training::find($this->training->id);
     }

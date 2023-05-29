@@ -4,10 +4,10 @@
             <h1 class="font-bold text-2xl uppercase">cursos</h1>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            @foreach ($courses as $course)
+            @foreach ($trainings as $course)
                 <article class="bg-white overflow-hidden rounded-xl shadow-md">
                     <x-course-card :course="$course" />
-                    <a href="{{ route('courses.show', $course) }}">
+                    <a href="{{ route('trainings.show', $course) }}">
                         <button class="bg-red-600 p-2 w-full text-white text-center font-bold">
                             Mas info...
                         </button>
@@ -16,7 +16,7 @@
             @endforeach
         </div>
         <div class="mt-5">
-            {{ $courses->links() }}
+            {{ $trainings->links() }}
         </div>
     </div>
 </div>

@@ -1,6 +1,6 @@
 @props(['course'])
 
-<article class="bg-white overflow-hidden rounded-xl shadow-md">
+
     <img class="h-60 w-full object-cover rounded-t-md" src="{{ Storage::url($course->image->url) }}" loading="lazy">
     <div class="p-4">
         <h1 class="font-semibold text-xl truncate">{{ Str::limit($course->title, 25, '') }}</h1>
@@ -21,9 +21,4 @@
             </section>
         </div>
     </div>
-    <a href="{{ route('courses.show', $course) }}">
-        <button class="bg-red-600 p-2 w-full text-white text-center font-bold">
-            Mas info...
-        </button>
-    </a>
-</article>
+    

@@ -5,13 +5,18 @@
         </div>
         <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
             @foreach ($workshops as $course)
-                <div>
+                <article class="bg-white overflow-hidden rounded-xl shadow-md">
                     <x-course-card :course="$course" />
-                </div>
+                    <a href="{{ route('workshops.show', $course) }}">
+                        <button class="bg-red-600 p-2 w-full text-white text-center font-bold">
+                            Mas info...
+                        </button>
+                    </a>
+                </article>
             @endforeach
         </div>
         <div class="mt-5">
-            {{$workshops->links()}}
+            {{ $workshops->links() }}
         </div>
     </div>
 </div>
