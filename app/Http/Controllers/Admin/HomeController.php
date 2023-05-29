@@ -22,7 +22,8 @@ class HomeController extends Controller
         $sliders = $this->sliders();
         $postulants = $this->postulantsList();
         $events = $this->events();
-        return view('admin.home', compact('courses', 'trainings', 'workshops', 'postulants', 'sliders', 'postulants', 'events'));
+        $coutEvents = count($events);
+        return view('admin.home', compact('courses', 'trainings', 'workshops', 'postulants', 'sliders', 'postulants', 'events', 'coutEvents'));
     }
 
     public function courses()
@@ -57,6 +58,14 @@ class HomeController extends Controller
 
     public function events()
     {
-        return Event::count();
+        $allEvents = Event::all();
+        foreach ($allEvents as $event) {
+            $events[] = [
+                'title' => $event->title,
+                'start' => $event->start_date,
+                'end' => $event->end_date,
+            ];
+        }
+        return $events;
     }
 }

@@ -6,12 +6,12 @@
 
         <div class="mt-5">
 
-            {!! Form::model($course, ['route' => ['admin.courses.update', $course], 'method' => 'put', 'files' => true]) !!}
+            {!! Form::model($event, ['route' => ['admin.events.update', $event], 'method' => 'put', 'files' => true]) !!}
 
 
-            @include('admin.courses.partials.form')
+            @include('admin.events.partials.form')
             <div class="flex justify-end">
-                {!! Form::submit('Actualizar información', [
+                {!! Form::submit('Actualizar Evento', [
                     'class' => 'bg-blue-500 block text-white font-bold rounded p-3 cursor-pointer',
                 ]) !!}
             </div>

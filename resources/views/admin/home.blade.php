@@ -57,7 +57,7 @@
                     <h1 class="font-bold uppercase text-sm tracking-widest">Eventos</h1>
                     <section class="flex items-center justify-center">
                         <h1 class="text-6xl font-bold my-5 text-violet-600">
-                            {{ $events }}
+                            {{ $coutEvents }}
                         </h1>
                     </section>
                     <p class="block text-center font-bold text-violet-600 tracking-wider">Publicados</p>
@@ -70,6 +70,7 @@
                 <section class="p-4 md:p-5">
                     <div id='calendar'></div>
                     <script>
+                        var event = @json($events);
                         document.addEventListener('DOMContentLoaded', function() {
                             var calendarEl = document.getElementById('calendar');
                             var calendar = new FullCalendar.Calendar(calendarEl, {
@@ -82,6 +83,7 @@
                                     center: 'title',
                                     right: ''
                                 },
+                                events: event,
                             });
                             calendar.render();
                         });

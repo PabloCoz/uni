@@ -10,5 +10,15 @@ class Event extends Model
     use HasFactory;
 
     protected $guarded = ['id'];
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
+    public function image()
+    {
+        return $this->morphOne(Image::class, 'imageable');
+    }
     
 }

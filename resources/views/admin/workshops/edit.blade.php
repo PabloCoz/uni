@@ -1,5 +1,5 @@
 <x-admin-layout>
-    <div class="max-w-6xl mx-auto px-6 lg:px-8">
+    <div class="max-w-6xl mx-auto lg:px-8">
         <div class="flex justify-between items-center">
             <h1 class="text-2xl font-bold">Lista de Talleres</h1>
         </div>
