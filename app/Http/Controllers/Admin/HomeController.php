@@ -59,11 +59,13 @@ class HomeController extends Controller
     public function events()
     {
         $allEvents = Event::all();
+        if(count($allEvents) == 0) return [];
         foreach ($allEvents as $event) {
             $events[] = [
                 'title' => $event->title,
                 'start' => $event->start_date,
-                'end' => $event->end_date,
+                'end' => date("Y-m-d", strtotime($event->end_date . " +1 day")),
+                'allDay' => true,
             ];
         }
         return $events;

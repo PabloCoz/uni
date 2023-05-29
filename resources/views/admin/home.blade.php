@@ -76,6 +76,7 @@
                             var calendar = new FullCalendar.Calendar(calendarEl, {
                                 initialView: 'dayGridMonth',
                                 locale: 'es',
+                                defaultDate: new Date(),
                                 height: 375,
                                 contentHeight: 600,
                                 headerToolbar: {
@@ -83,10 +84,11 @@
                                     center: 'title',
                                     right: ''
                                 },
-                                events: event,
+                                events: event
                             });
                             calendar.render();
                         });
+                        console.log(event);
                     </script>
                 </section>
             </div>
