@@ -90,10 +90,10 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#"
+                    <a href="{{ route('admin.users.index') }}"
                         class="flex items-center p-2 text-gray-100 rounded-lg hover:bg-gray-700 hover:text-white">
                         <i class="fa-solid fa-users"></i>
-                        <span class="flex-1 ml-3">Alumnos</span>
+                        <span class="flex-1 ml-3">Usuarios</span>
                     </a>
                 </li>
                 <li>
@@ -108,6 +108,13 @@
                         class="flex items-center p-2 text-gray-100 rounded-lg hover:bg-gray-700 hover:text-white">
                         <i class="fa-solid fa-rectangle-ad"></i>
                         <span class="flex-1 ml-3">Gestion de Anuncios</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('admin.roles.index') }}"
+                        class="flex items-center p-2 text-gray-100 rounded-lg hover:bg-gray-700 hover:text-white">
+                        <i class="fa-solid fa-fingerprint"></i>
+                        <span class="flex-1 ml-3">Roles y permisos</span>
                     </a>
                 </li>
                 <li>

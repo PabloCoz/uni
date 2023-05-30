@@ -47,6 +47,12 @@
                             {{ __('Profile') }}
                         </x-dropdown-link>
 
+                        @can('Ver Dashboard')
+                            <x-dropdown-link :href="route('admin.home')">
+                                {{ __('Admin') }}
+                            </x-dropdown-link>
+                        @endcan
+
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf

@@ -41,11 +41,15 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         $this->call([
+            PermissionSeeder::class,
+            RoleSeeder::class,
             PostulantSeeder::class,
             ScheduleSeeder::class,
             ModalitySeeder::class,
             CourseSeeder::class,
             SliderSeeder::class,
         ]);
+
+        $user->assignRole('Admin');
     }
 }

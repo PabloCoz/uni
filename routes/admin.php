@@ -4,13 +4,15 @@ use App\Http\Controllers\Admin\CourseController;
 use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\PostulantController;
+use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\ScheduleController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\TrainingController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\WorkshopController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', HomeController::class)->name('admin.home');
+Route::get('/', HomeController::class)->middleware('can:Ver Dashboard')->name('admin.home');
 
 Route::get('postulants', [PostulantController::class, 'index'])->name('admin.postulants');
 
@@ -28,3 +30,7 @@ Route::post('training/{training}/approvedTraining', [TrainingController::class, 
 Route::resource('sliders', SliderController::class)->names('admin.sliders');
 
 Route::resource('events', EventController::class)->names('admin.events');
+
+Route::resource('roles', RoleController::class)->names('admin.roles');
+
+Route::resource('users', UserController::class)->only('index', 'edit', 'update')->names('admin.users');

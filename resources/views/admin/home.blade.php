@@ -68,6 +68,11 @@
         <article class="md:col-span-2">
             <div class="bg-white overflow-hidden rounded-lg shadow-lg">
                 <section class="p-4 md:p-5">
+                    <style>
+                        .fc-now-indicator {
+                            background-color: blue;
+                        }
+                    </style>
                     <div id='calendar'></div>
                     <script>
                         var event = @json($events);
@@ -76,19 +81,16 @@
                             var calendar = new FullCalendar.Calendar(calendarEl, {
                                 initialView: 'dayGridMonth',
                                 locale: 'es',
-                                defaultDate: new Date(),
                                 height: 375,
                                 contentHeight: 600,
                                 headerToolbar: {
-                                    left: '',
-                                    center: 'title',
-                                    right: ''
+                                    left: 'title',
+                                    right: 'prev,next'
                                 },
-                                events: event
+                                events: event,
                             });
                             calendar.render();
                         });
-                        console.log(event);
                     </script>
                 </section>
             </div>

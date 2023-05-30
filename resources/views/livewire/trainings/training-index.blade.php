@@ -1,7 +1,7 @@
 <div>
     <div class="max-w-7xl mx-auto lg:px-8 py-12">
         <div class="my-5">
-            <h1 class="font-bold text-2xl uppercase">cursos</h1>
+            <h1 class="font-bold text-2xl uppercase">Capacitaciones</h1>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             @foreach ($trainings as $course)

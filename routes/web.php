@@ -10,7 +10,9 @@ use App\Http\Controllers\WorkshopController;
 use App\Http\Livewire\Courses\CourseStatus;
 use App\Http\Livewire\Courses\CourseUser;
 use App\Http\Livewire\Trainings\TrainingStatus;
+use App\Http\Livewire\Trainings\TrainingUser;
 use App\Http\Livewire\Workshops\WorkshopStatus;
+use App\Http\Livewire\Workshops\WorkshopUser;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -57,6 +59,7 @@ Route::middleware('auth')->group(function () {
     Route::get('workshops/{workshop}', [WorkshopController::class, 'show'])->name('workshops.show');
     Route::post('workshops/{workshop}/enrolled', [WorkshopController::class, 'enrolled'])->name('workshops.enrolled');
     Route::get('workshops/workshop-status/{workshop}', WorkshopStatus::class)->name('workshops.status');
+    Route::get('my-workshops', WorkshopUser::class)->name('workshops.my-workshops');
 });
 
 Route::middleware('auth')->group(function (){
@@ -64,6 +67,7 @@ Route::middleware('auth')->group(function (){
     Route::get('trainings/{training}', [TrainingController::class, 'show'])->name('trainings.show');
     Route::post('trainings/{training}/enrolled', [TrainingController::class, 'enrolled'])->name('trainings.enrolled');
     Route::get('trainings/training-status/{training}', TrainingStatus::class)->name('trainings.status');
+    Route::get('my-trainings', TrainingUser::class)->name('trainings.my-trainings');
 });
 
 require __DIR__.'/auth.php';
