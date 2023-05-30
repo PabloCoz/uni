@@ -1,7 +1,7 @@
 <x-admin-layout>
     <div class="max-w-6xl mx-auto lg:px-8">
         <div class="flex justify-between items-center">
-            <h1 class="text-2xl font-bold">Crear Curso</h1>
+            <h1 class="text-2xl font-bold">Crear Taller</h1>
         </div>
 
         <div class="mt-5">
