@@ -2,7 +2,9 @@
 
 namespace Database\Factories;
 
+use App\Models\Modality;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Training>
@@ -16,8 +18,17 @@ class TrainingFactory extends Factory
      */
     public function definition(): array
     {
+        $title = $this->faker->sentence();
         return [
-            //
+            'title' => $title,
+            'description' => $this->faker->paragraph(),
+            'hours' => $this->faker->numberBetween(10, 100),
+            'status' => $this->faker->randomElement([1, 2]),
+            'slug' => Str::slug($title),
+            'start_date' => $this->faker->date(),
+            'end_date' => $this->faker->date(),
+            'modality_id' => Modality::all()->random()->id,
+            'user_id' => 1,
         ];
     }
 }

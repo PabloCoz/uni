@@ -22,11 +22,14 @@ class WorkshopFactory extends Factory
         $title = $this->faker->sentence();
         return [
             'title' => $title,
-            'slug' => Str::slug($title),
             'description' => $this->faker->paragraph(),
-            'hours' => $this->faker->numberBetween(1, 10),
-            'status' => $this->faker->randomElement([Workshop::ELABORACION, Workshop::PUBLICADO]),
+            'hours' => $this->faker->numberBetween(10, 100),
+            'status' => $this->faker->randomElement([1, 2]),
+            'slug' => Str::slug($title),
+            'start_date' => $this->faker->date(),
+            'end_date' => $this->faker->date(),
             'modality_id' => Modality::all()->random()->id,
+            'user_id' => 1,
         ];
     }
 }

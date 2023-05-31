@@ -47,6 +47,8 @@ class DatabaseSeeder extends Seeder
             ScheduleSeeder::class,
             ModalitySeeder::class,
             CourseSeeder::class,
+            WorkshopSeeder::class,
+            TrainingSeeder::class,
             SliderSeeder::class,
         ]);
 

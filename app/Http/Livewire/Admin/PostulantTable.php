@@ -15,6 +15,8 @@ class PostulantTable extends Component
     use WithPagination;
     public $search, $open = false;
 
+    public $isloading = false;
+
     public function render()
     {
         $postulants = Postulant::where('validated', false)
@@ -28,7 +30,7 @@ class PostulantTable extends Component
 
     public function validatedVoucher($id)
     {
-        $postulant = Postulant::find($id);
+         $postulant = Postulant::find($id);
         $postulant->validated = true;
         $postulant->save();
         $this->createUser($postulant);
@@ -67,5 +69,10 @@ class PostulantTable extends Component
         $mail = new ApprovedUser($user);
 
         Mail::to($user->email)->send($mail);
+    }
+
+    public function loadingComponent()
+    {
+        $this->isloading = true;
     }
 }
