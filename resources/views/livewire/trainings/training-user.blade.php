@@ -4,7 +4,7 @@
             @forelse ($trainings as $course)
             <article class="bg-white overflow-hidden rounded-xl shadow-md">
                     <x-course-card :course="$course" />
-                    <a href="{{ route('trainings.status', $training) }}">
+                    <a href="{{ route('trainings.status', $course) }}">
                         <button class="bg-red-600 p-2 w-full text-white text-center font-bold">
                             Continuar el curso
                         </button>

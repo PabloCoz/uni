@@ -11,6 +11,15 @@ use Illuminate\Support\Facades\Storage;
 
 class TrainingController extends Controller
 {
+    public function __contruct()
+    {
+        $this->middleware('can:Leer Contenido')->only('index');
+        $this->middleware('can:Crear Contenido')->only('create', 'store');
+        $this->middleware('can:Actualizar Contenido')->only('edit', 'update', 'show');
+        $this->middleware('can:Eliminar Contenido')->only('destroy');
+        $this->middleware('can:Publicar Contenido')->only('approvedTraining');
+    }
+
     public function index(): View
     {
         return view('admin.trainings.index');

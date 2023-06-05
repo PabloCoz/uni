@@ -16,7 +16,10 @@ return new class extends Migration
             $table->string('name');
             $table->string('lastname');
             $table->text('description')->nullable();
-            $table->string('photo_url')->nullable();
+            $table->integer('phone')->nullable();
+            $table->string('gender')->nullable();
+            $table->string('address')->nullable();
+            $table->integer('completed')->nullable();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });

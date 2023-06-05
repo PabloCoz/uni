@@ -12,16 +12,16 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                    <x-nav-link :href="route('dashboard')" :icon="'house'" :active="request()->routeIs('dashboard')">
                         {{ __('Inicio') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('courses.index')" :active="request()->routeIs('courses.*')">
+                    <x-nav-link :href="route('courses.index')" :icon="'book'" :active="request()->routeIs('courses.*')">
                         {{ __('Cursos') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('workshops.index')" :active="request()->routeIs('workshops.*')">
+                    <x-nav-link :href="route('workshops.index')" :icon="'screwdriver-wrench'" :active="request()->routeIs('workshops.*')">
                         {{ __('Talleres') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('trainings.index')" :active="request()->routeIs('trainings.*')">
+                    <x-nav-link :href="route('trainings.index')" :icon="'chalkboard-user'" :active="request()->routeIs('trainings.*')">
                         {{ __('Capacitaciones') }}
                     </x-nav-link>
                 </div>

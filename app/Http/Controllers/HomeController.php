@@ -12,7 +12,11 @@ class HomeController extends Controller
     {
         $events = $this->events();
         $sliders = $this->sliders();
-        return view('dashboard', compact('sliders', 'events'));
+        $countCourse = $this->countCourse();
+        $countTrainings = $this->myTrainings();
+        $countWorkshops = $this->myWorkshops();
+        $listEvents = $this->listEvents();
+        return view('dashboard', compact('sliders', 'events', 'countCourse', 'countTrainings', 'countWorkshops', 'listEvents'));
     }
 
     public function sliders()
@@ -22,8 +26,8 @@ class HomeController extends Controller
 
     public function events()
     {
-        $allEvents = Event::all();
-        if(count($allEvents) == 0) return [];
+        $allEvents = Event::where('start_date', '>=', date('Y-m-d'))->get();
+        if (count($allEvents) == 0) return [];
         foreach ($allEvents as $event) {
             $events[] = [
                 'title' => $event->title,
@@ -33,5 +37,25 @@ class HomeController extends Controller
             ];
         }
         return $events;
+    }
+
+    public function countCourse()
+    {
+        return auth()->user()->courses_enrolled->count();
+    }
+
+    public function myTrainings()
+    {
+        return auth()->user()->trainings_enrolled->count();
+    }
+
+    public function myWorkshops()
+    {
+        return auth()->user()->workshops_enrolled->count();
+    }
+
+    public function listEvents()
+    {
+        return Event::where('start_date', '>=', date('Y-m-d'))->get();
     }
 }

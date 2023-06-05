@@ -56,7 +56,7 @@ class Course extends Model
 
     public function students()
     {
-        return $this->belongsToMany(User::class);
+        return $this->belongsToMany(User::class)->withPivot('archived');
     }
 
     public function teacher()
