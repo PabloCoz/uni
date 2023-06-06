@@ -54,7 +54,7 @@
         <a href="{{ route('admin.events.index') }}">
             <article class="bg-white overflow-hidden rounded-lg shadow-lg">
                 <div class="p-8">
-                    <h1 class="font-bold uppercase text-sm tracking-widest">Eventos</h1>
+                    <h1 class="font-bold uppercase text-sm tracking-widest">Proximos Eventos</h1>
                     <section class="flex items-center justify-center">
                         <h1 class="text-6xl font-bold my-5 text-violet-600">
                             {{ $coutEvents }}

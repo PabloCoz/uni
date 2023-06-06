@@ -58,7 +58,7 @@ class HomeController extends Controller
 
     public function events()
     {
-        $allEvents = Event::all();
+        $allEvents = Event::where('start_date', '>=', date('Y-m-d'))->get();
         if(count($allEvents) == 0) return [];
         foreach ($allEvents as $event) {
             $events[] = [

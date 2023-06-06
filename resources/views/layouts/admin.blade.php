@@ -50,7 +50,7 @@
                     <a href="{{ route('admin.home') }}"
                         class="flex items-center p-2 text-gray-100 rounded-lg hover:bg-gray-700 hover:text-white">
                         <i class="fa-solid fa-house"></i>
-                        <span class="ml-3">Inicio</span>
+                        <span class="ml-3">Panel Principal</span>
                     </a>
                 </li>
                 <li>
@@ -118,10 +118,10 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#"
+                    <a href="{{ route('dashboard') }}"
                         class="flex items-center p-2 text-gray-100 rounded-lg hover:bg-gray-700 hover:text-white">
                         <i class="fa-solid fa-circle-left"></i>
-                        <span class="flex-1 ml-3">Cerrar Sesión</span>
+                        <span class="flex-1 ml-3">Volver al inicio</span>
                     </a>
                 </li>
             </ul>
