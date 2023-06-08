@@ -28,7 +28,7 @@ class ApprovedUser extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Approved User',
+            subject: 'Aprovación de usuario para INCUBA UNACH',
         );
     }
 
