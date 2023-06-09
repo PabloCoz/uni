@@ -26,7 +26,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', WelcomeController::class)->middleware('guest')->name('home');
+/* Route::get('/',function (){
+    return view('welcome');
+}); */
 
 Route::get('/dashboard', HomeController::class)->middleware(['auth', 'verified'])->name('dashboard');
 

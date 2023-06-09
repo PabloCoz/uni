@@ -32,7 +32,7 @@ class DatabaseSeeder extends Seeder
         Profile::create([
             'user_id' => $user->id,
             'name' => 'Pablo',
-            'lastname' => 'Perez',
+            'lastname' => 'Coz Ramos',
         ]);
 
         // \App\Models\User::factory()->create([
