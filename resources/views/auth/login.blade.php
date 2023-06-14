@@ -38,11 +38,11 @@
                             class="w-full font-bold text-white bg-sky-700 hover:bg-sky-800 focus:ring-4 focus:outline-none focus:ring-sky-300 rounded-lg text-sm px-5 py-2.5 text-center uppercase tracking-widest">
                             Ingresar
                         </button>
-                        <p class="text-sm font-light text-gray-500">
-                            Don’t have an account yet? <a href="#"
-                                class="font-medium text-sky-600 hover:underline">Sign up</a>
-                        </p>
                     </form>
+                    <a href="{{ route('validate-pay') }}"
+                        class="w-full block font-bold text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 rounded-lg text-sm px-5 py-2.5 text-center uppercase tracking-widest">
+                        Validación de código
+                    </a>
                 </div>
             </div>
         </div>

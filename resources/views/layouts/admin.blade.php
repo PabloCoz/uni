@@ -42,8 +42,7 @@
         aria-label="Sidebar">
         <div class="h-full px-3 py-4 overflow-y-auto bg-gray-900 shadow-lg shadow-slate-600">
             <a href="{{ route('admin.home') }}" class="flex items-center pl-2.5 mb-5">
-                <img src="https://flowbite.com/docs/images/logo.svg" class="h-6 mr-3 sm:h-7" alt="Flowbite Logo" />
-                <span class="self-center text-xl font-semibold text-white">UNACH</span>
+                <img class="w-40" src="{{ asset('img/incuba.png') }}" alt="logo">
             </a>
             <ul class="space-y-2 font-medium">
                 <li>
