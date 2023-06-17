@@ -108,9 +108,9 @@
                     </div>
                     <section class="flex items-center justify-center">
                         <div class="relative overflow-x-auto w-full mt-3">
-                            <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                            <table class="w-full text-sm text-left text-gray-500">
                                 <thead
-                                    class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                    class="text-xs text-gray-700 uppercase bg-gray-100">
                                     <tr>
                                         <th scope="col" class="px-6 py-3">
                                             Nombres
@@ -121,10 +121,10 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($postulants as $postulant)
-                                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                    @forelse ($postulants as $postulant)
+                                        <tr class="bg-white border-b ">
                                             <th scope="row"
-                                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                class="px-6 py-4 font-medium text-gray-900">
                                                 {{ $postulant->fullname }}
                                             </th>
 
@@ -132,7 +132,13 @@
                                                 {{ $postulant->phone }}
                                             </td>
                                         </tr>
-                                    @endforeach
+                                    @empty
+                                        <tr>
+                                            <td colspan="2" class="px-6 py-4 text-center">
+                                                No hay postulantes
+                                            </td>
+                                        </tr>
+                                    @endforelse
                                 </tbody>
                             </table>
                         </div>
