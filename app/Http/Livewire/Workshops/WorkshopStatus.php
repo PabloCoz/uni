@@ -13,9 +13,10 @@ class WorkshopStatus extends Component
     {
         $this->workshop = $workshop;
     }
-    
+
     public function render()
     {
+        $this->autorize('enrolled', $this->course);
         return view('livewire.workshops.workshop-status');
     }
 }

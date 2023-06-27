@@ -16,21 +16,21 @@ Route::get('/', HomeController::class)->middleware('can:Ver Dashboard')->name('a
 
 Route::get('postulants', [PostulantController::class, 'index'])->name('admin.postulants');
 
-Route::resource('courses', CourseController::class)->names('admin.courses');
-Route::post('courser/{course}/approvedCourse', [CourseController::class, 'approvedCourse'])->name('admin.courses.approvedCourse');
+Route::resource('courses', CourseController::class)->middleware('can:Leer Contenido')->names('admin.courses');
+Route::post('courser/{course}/approvedCourse', [CourseController::class, 'approvedCourse'])->middleware('can:Publicar Contenido')->name('admin.courses.approvedCourse');
 
-Route::resource('schedules', ScheduleController::class)->names('admin.schedules');
+Route::resource('schedules', ScheduleController::class)->middleware('can:Leer Contenido')->names('admin.schedules');
 
-Route::resource('workshops', WorkshopController::class)->names('admin.workshops');
-Route::post('workshop/{workshop}/approvedWorkshop', [WorkshopController::class, 'approvedWorkshop'])->name('admin.workshops.approvedWorkshop');
+Route::resource('workshops', WorkshopController::class)->middleware('can:Leer Contenido')->names('admin.workshops');
+Route::post('workshop/{workshop}/approvedWorkshop', [WorkshopController::class, 'approvedWorkshop'])->middleware('can:Publicar Contenido')->name('admin.workshops.approvedWorkshop');
 
-Route::resource('trainings', TrainingController::class)->names('admin.trainings');
-Route::post('training/{training}/approvedTraining', [TrainingController::class, 'approvedTraining'])->name('admin.trainings.approvedTraining');
+Route::resource('trainings', TrainingController::class)->middleware('can:Leer Contenido')->names('admin.trainings');
+Route::post('training/{training}/approvedTraining', [TrainingController::class, 'approvedTraining'])->middleware('can:Publicar Contenido')->name('admin.trainings.approvedTraining');
 
-Route::resource('sliders', SliderController::class)->names('admin.sliders');
+Route::resource('sliders', SliderController::class)->middleware('can:Leer Contenido')->names('admin.sliders');
 
-Route::resource('events', EventController::class)->names('admin.events');
+Route::resource('events', EventController::class)->middleware('can:Leer Contenido')->names('admin.events');
 
-Route::resource('roles', RoleController::class)->names('admin.roles');
+Route::resource('roles', RoleController::class)->middleware('can:Listar Role')->names('admin.roles');
 
-Route::resource('users', UserController::class)->only('index', 'edit', 'update')->names('admin.users');
+Route::resource('users', UserController::class)->middleware('can:Listar Usuarios')->only('index', 'edit', 'update')->names('admin.users');

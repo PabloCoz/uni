@@ -16,6 +16,7 @@ class CourseStatus extends Component
 
     public function render()
     {
+        $this->autorize('enrolled', $this->course);
         return view('livewire.courses.course-status');
     }
 }

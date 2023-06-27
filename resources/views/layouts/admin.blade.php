@@ -52,56 +52,61 @@
                         <span class="ml-3">Panel Principal</span>
                     </a>
                 </li>
-                <li>
-                    <a href="{{ route('admin.courses.index') }}"
-                        class="flex items-center p-2 text-gray-100 rounded-lg hover:bg-gray-700 hover:text-white">
-                        <i class="fa-solid fa-book"></i>
-                        <span class="flex-1 ml-3">Cursos</span>
+                @can('Leer Contenido')
+                    <li>
+                        <a href="{{ route('admin.courses.index') }}"
+                            class="flex items-center p-2 text-gray-100 rounded-lg hover:bg-gray-700 hover:text-white">
+                            <i class="fa-solid fa-book"></i>
+                            <span class="flex-1 ml-3">Cursos</span>
 
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ route('admin.workshops.index') }}"
-                        class="flex items-center p-2 text-gray-100 rounded-lg hover:bg-gray-700 hover:text-white">
-                        <i class="fa-solid fa-screwdriver-wrench"></i>
-                        <span class="flex-1 ml-3">Talleres</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ route('admin.trainings.index') }}"
-                        class="flex items-center p-2 text-gray-100 rounded-lg hover:bg-gray-700 hover:text-white">
-                        <i class="fa-solid fa-chalkboard-user"></i>
-                        <span class="flex-1 ml-3">Capacitaciones</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ route('admin.events.index') }}"
-                        class="flex items-center p-2 text-gray-100 rounded-lg hover:bg-gray-700 hover:text-white">
-                        <i class="fa-solid fa-group-arrows-rotate"></i>
-                        <span class="flex-1 ml-3">Eventos</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ route('admin.schedules.index') }}"
-                        class="flex items-center p-2 text-gray-100 rounded-lg hover:bg-gray-700 hover:text-white">
-                        <i class="fa-solid fa-clock"></i>
-                        <span class="flex-1 ml-3">Horarios</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ route('admin.users.index') }}"
-                        class="flex items-center p-2 text-gray-100 rounded-lg hover:bg-gray-700 hover:text-white">
-                        <i class="fa-solid fa-users"></i>
-                        <span class="flex-1 ml-3">Usuarios</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ route('admin.postulants') }}"
-                        class="flex items-center p-2 text-gray-100 rounded-lg hover:bg-gray-700 hover:text-white">
-                        <i class="fa-solid fa-user-clock"></i>
-                        <span class="flex-1 ml-3">Postulantes</span>
-                    </a>
-                </li>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{{ route('admin.workshops.index') }}"
+                            class="flex items-center p-2 text-gray-100 rounded-lg hover:bg-gray-700 hover:text-white">
+                            <i class="fa-solid fa-screwdriver-wrench"></i>
+                            <span class="flex-1 ml-3">Talleres</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('admin.trainings.index') }}"
+                            class="flex items-center p-2 text-gray-100 rounded-lg hover:bg-gray-700 hover:text-white">
+                            <i class="fa-solid fa-chalkboard-user"></i>
+                            <span class="flex-1 ml-3">Capacitaciones</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('admin.events.index') }}"
+                            class="flex items-center p-2 text-gray-100 rounded-lg hover:bg-gray-700 hover:text-white">
+                            <i class="fa-solid fa-group-arrows-rotate"></i>
+                            <span class="flex-1 ml-3">Eventos</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('admin.schedules.index') }}"
+                            class="flex items-center p-2 text-gray-100 rounded-lg hover:bg-gray-700 hover:text-white">
+                            <i class="fa-solid fa-clock"></i>
+                            <span class="flex-1 ml-3">Horarios</span>
+                        </a>
+                    </li>
+                @endcan
+                @can('Listar Usuarios')
+                    <li>
+                        <a href="{{ route('admin.users.index') }}"
+                            class="flex items-center p-2 text-gray-100 rounded-lg hover:bg-gray-700 hover:text-white">
+                            <i class="fa-solid fa-users"></i>
+                            <span class="flex-1 ml-3">Usuarios</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('admin.postulants') }}"
+                            class="flex items-center p-2 text-gray-100 rounded-lg hover:bg-gray-700 hover:text-white">
+                            <i class="fa-solid fa-user-clock"></i>
+                            <span class="flex-1 ml-3">Postulantes</span>
+                        </a>
+                    </li>
+                @endcan
                 <li>
                     <a href="{{ route('admin.sliders.index') }}"
                         class="flex items-center p-2 text-gray-100 rounded-lg hover:bg-gray-700 hover:text-white">

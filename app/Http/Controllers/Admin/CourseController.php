@@ -19,11 +19,11 @@ class CourseController extends Controller
         $this->middleware('can:Eliminar Contenido')->only('destroy');
         $this->middleware('can:Publicar Contenido')->only('approvedCourse');
     }
-    
+
     /**
      * Display a listing of the resource.
      */
-    public function index(): View
+    public function index()
     {
         return  view('admin.courses.index');
     }

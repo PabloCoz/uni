@@ -13,9 +13,10 @@ class TrainingStatus extends Component
     {
         $this->training = $training;
     }
-    
+
     public function render()
     {
+        $this->autorize('enrolled', $this->course);
         return view('livewire.trainings.training-status');
     }
 }
