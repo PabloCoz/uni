@@ -13,10 +13,17 @@ class CourseIndex extends Component
 
     public function render()
     {
-        $courses = Course::where('title', 'LIKE', '%' . $this->search . '%')
-            ->orWhere('description', 'LIKE', '%' . $this->search . '%')
-            ->latest('id')
-            ->paginate(10);
+        //Si tiene el rol de admin muestrame todos los cursos si no solo los del usuario autenticado
+        if (auth()->user()->role('Admin')) {
+            $courses = Course::where('title', 'LIKE', '%' . $this->search . '%')
+                ->orWhere('slug', 'LIKE', '%' . $this->search . '%')
+                ->paginate(8);
+        } else {
+            $courses = Course::where('user_id', auth()->user()->id)
+                ->where('title', 'LIKE', '%' . $this->search . '%')
+                ->orWhere('slug', 'LIKE', '%' . $this->search . '%')
+                ->paginate(8);
+        }
         return view('livewire.admin.courses.course-index', compact('courses'));
     }
 }

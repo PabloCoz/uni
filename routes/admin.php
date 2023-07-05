@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', HomeController::class)->middleware('can:Ver Dashboard')->name('admin.home');
 
-Route::get('postulants', [PostulantController::class, 'index'])->name('admin.postulants');
+Route::get('postulants', [PostulantController::class, 'index'])->middleware('can:Listar Usuarios')->name('admin.postulants');
 
 Route::resource('courses', CourseController::class)->middleware('can:Leer Contenido')->names('admin.courses');
 Route::post('courser/{course}/approvedCourse', [CourseController::class, 'approvedCourse'])->middleware('can:Publicar Contenido')->name('admin.courses.approvedCourse');

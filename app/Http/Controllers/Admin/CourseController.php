@@ -70,6 +70,7 @@ class CourseController extends Controller
      */
     public function show(Course $course): View
     {
+        $this->authorize('edited', $course);
         return view('admin.courses.show', compact('course'));
     }
 
@@ -78,6 +79,7 @@ class CourseController extends Controller
      */
     public function edit(Course $course): View
     {
+        $this->authorize('edited', $course);
         $modalities = Modality::pluck('name', 'id');
         return view('admin.courses.edit', compact('course', 'modalities'));
     }
@@ -121,6 +123,7 @@ class CourseController extends Controller
      */
     public function destroy(Course $course)
     {
+        $this->authorize('edited', $course);
         $course->delete();
         return redirect()->route('admin.courses.index')->with('info', 'El curso se eliminó con éxito');
     }
