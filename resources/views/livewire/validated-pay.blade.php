@@ -29,10 +29,9 @@
                             <a href="{{ route('remember-code') }}" class="underline">Olvide mi codigo</a>
                         </div>
                         <div class="space-x-3">
-                            <a href="{{-- {{ route('home') }} --}}">
-                                <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mt-4">
-                                    Cancelar
-                                </button>
+                            <a href="{{ route('login') }}"
+                                class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mt-4">
+                                Cancelar
                             </a>
                             <button type="submit"
                                 class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4">
