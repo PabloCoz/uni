@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Admin\Modals;
 
 use App\Models\Postulant;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 
 class VoucherModal extends Component
@@ -21,6 +22,6 @@ class VoucherModal extends Component
 
     public function download()
     {
-        return response()->download(storage_path('app/public/' . $this->postulant->voucher));
+        return response()->download(Storage::path($this->postulant->url_voucher));
     }
 }

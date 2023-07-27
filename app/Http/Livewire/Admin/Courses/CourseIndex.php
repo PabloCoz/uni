@@ -14,7 +14,7 @@ class CourseIndex extends Component
     public function render()
     {
         //Si tiene el rol de admin muestrame todos los cursos si no solo los del usuario autenticado
-        if (auth()->user()->role('Admin')) {
+        /* if (auth()->user()->role('Admin')) {
             $courses = Course::where('title', 'LIKE', '%' . $this->search . '%')
                 ->orWhere('slug', 'LIKE', '%' . $this->search . '%')
                 ->paginate(8);
@@ -23,7 +23,10 @@ class CourseIndex extends Component
                 ->where('title', 'LIKE', '%' . $this->search . '%')
                 ->orWhere('slug', 'LIKE', '%' . $this->search . '%')
                 ->paginate(8);
-        }
+        } */
+        $courses = Course::where('title', 'LIKE', '%' . $this->search . '%')
+            ->orWhere('slug', 'LIKE', '%' . $this->search . '%')
+            ->paginate(8);
         return view('livewire.admin.courses.course-index', compact('courses'));
     }
 }

@@ -3,10 +3,12 @@
 namespace App\Http\Livewire\Trainings;
 
 use App\Models\Training;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Livewire\Component;
 
 class TrainingStatus extends Component
 {
+    use AuthorizesRequests;
     public $training;
 
     public function mount(Training $training)
@@ -16,7 +18,7 @@ class TrainingStatus extends Component
 
     public function render()
     {
-        $this->autorize('enrolled', $this->course);
+        $this->authorize('enrolled', $this->course);
         return view('livewire.trainings.training-status');
     }
 }

@@ -1,11 +1,5 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-extrabold text-xl text-gray-800 leading-tight text-center">
-            UNIVERSIDAD NACIONAL AUTÓNOMA DE CHOTA
-        </h2>
-    </x-slot>
-
-    <div class="max-w-3xl mx-auto sm:px-6 lg:px-8 mt-12">
+    <div class="max-w-3xl mx-auto sm:px-6 lg:px-8 py-8">
         @if (session('success'))
             <div class="p-4 mb-4 text-sm text-black rounded-lg bg-blue-200" role="alert">
                 <span class="font-medium">{{ session('success') }}</span>
@@ -22,7 +16,7 @@
                 EMPRENDIMIENTO
                 E INNOVACIÓN</h2>
             <div class="flex justify-center">
-                <img src="" alt="LOGO" class="">
+                <img class="w-48 object-cover object-center" src="{{ asset('img/incuba.png') }}" alt="logo">
             </div>
             <hr class="border border-gray-500 mt-4">
             <div class="max-w-2xl mx-auto mt-10">
